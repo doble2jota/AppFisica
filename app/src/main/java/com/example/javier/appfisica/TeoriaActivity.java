@@ -19,15 +19,15 @@ public class TeoriaActivity extends ActionBarActivity {
         TabHost tabs = (TabHost)findViewById(android.R.id.tabhost);
 
         tabs.setup();
-        TabHost.TabSpec spec = tabs.newTabSpec("Teoria");
+        TabHost.TabSpec spec = tabs.newTabSpec("Teoría");
         spec.setContent(R.id.tab1);
-        spec.setIndicator("Teoría");
+        spec.setIndicator("Teoria");
         tabs.addTab(spec);
 
         tabs.setup();
-        TabHost.TabSpec spec2 = tabs.newTabSpec("Form");
+        TabHost.TabSpec spec2 = tabs.newTabSpec("Fórmulas");
         spec2.setContent(R.id.tab2);
-        spec2.setIndicator("Form");
+        spec2.setIndicator("Formulas");
         tabs.addTab(spec2);
 
 
