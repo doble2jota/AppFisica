@@ -1,38 +1,24 @@
 package com.example.javier.appfisica;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 
-public class BotoneraMenu extends ActionBarActivity {
+public class TeoriaActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_botonera_menu);
-
-        Button button1 = (Button) findViewById(R.id.bteoria);
-        button1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent act = new Intent(BotoneraMenu.this, TeoriaActivity.class);
-                startActivity(act);
-            }
-
-        });
-
+        setContentView(R.layout.activity_teoria);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_botonera_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_teoria, menu);
         return true;
     }
 
@@ -50,5 +36,4 @@ public class BotoneraMenu extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
