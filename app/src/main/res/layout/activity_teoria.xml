@@ -9,67 +9,113 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
+        android:layout_height="fill_parent">
 
-        android:id="@+id/Linear2">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Corriente Alterna"
-        android:id="@+id/textView"
-        android:textColor="#669900"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-         />
+        <TabHost
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@android:id/tabhost">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@android:id/tabs"></TabWidget>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <LinearLayout
+                        android:id="@+id/tab1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Corriente Alterna"
+                                android:id="@+id/textView"
+                                android:textColor="#669900"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                />
+
+
+                        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="57dp">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_alignParentTop="true"
+                                android:padding="2dp"
+
+                                android:id="@+id/Linear1">
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:text="Además de la existencia de fuentes de FEM de corriente directa o continua (C.D.) (como la que suministran las pilas o las baterías, cuya tensión o voltaje mantiene siempre su polaridad fija), se genera también otro tipo de corriente denominada alterna (C.A.), que se diferencia de la directa por el cambio constante de polaridad que efectúa por cada ciclo de tiempo."
+                                    android:id="@+id/textView5" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/alterna4"
+                                    android:paddingTop="20dp"
+                                    android:src="@drawable/alterna4" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:text="La característica principal de una corriente alterna es que durante un instante de tiempo un polo es negativo y el otro positivo, mientras que en el instante siguiente las polaridades se invierten tantas veces como ciclos por segundo o hertz posea esa corriente. No obstante, aunque se produzca un constante cambio de polaridad, la corriente siempre fluirá del polo negativo al positivo, tal como ocurre en las fuentes de FEM que suministran corriente directa."
+                                    android:id="@+id/textView6" />
+
+
+
+                            </LinearLayout>
+                        </ScrollView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Large Text"
+                            android:id="@+id/textView4" />
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
     </LinearLayout>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-
-    android:layout_height="wrap_content" >
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:padding="2dp"
-        android:paddingTop="20dp"
-        android:layout_marginTop="57dp"
-        android:id="@+id/Linear1">
 
 
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Además de la existencia de fuentes de FEM de corriente directa o continua (C.D.) (como la que suministran las pilas o las baterías, cuya tensión o voltaje mantiene siempre su polaridad fija), se genera también otro tipo de corriente denominada alterna (C.A.), que se diferencia de la directa por el cambio constante de polaridad que efectúa por cada ciclo de tiempo."
-            android:id="@+id/textView5" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/alterna4"
-            android:paddingTop="20dp"
-            android:src="@drawable/alterna4" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="La característica principal de una corriente alterna es que durante un instante de tiempo un polo es negativo y el otro positivo, mientras que en el instante siguiente las polaridades se invierten tantas veces como ciclos por segundo o hertz posea esa corriente. No obstante, aunque se produzca un constante cambio de polaridad, la corriente siempre fluirá del polo negativo al positivo, tal como ocurre en las fuentes de FEM que suministran corriente directa."
-            android:id="@+id/textView6" />
-
-
-
-    </LinearLayout>
-    </ScrollView>
 
 
 </RelativeLayout>

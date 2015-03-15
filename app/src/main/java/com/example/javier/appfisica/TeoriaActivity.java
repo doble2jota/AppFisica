@@ -1,9 +1,11 @@
 package com.example.javier.appfisica;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TabHost;
 
 
 public class TeoriaActivity extends ActionBarActivity {
@@ -12,6 +14,23 @@ public class TeoriaActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teoria);
+
+        Resources res= getResources();
+        TabHost tabs = (TabHost)findViewById(android.R.id.tabhost);
+
+        tabs.setup();
+        TabHost.TabSpec spec = tabs.newTabSpec("Teoria");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Teoría");
+        tabs.addTab(spec);
+
+        tabs.setup();
+        TabHost.TabSpec spec2 = tabs.newTabSpec("Form");
+        spec2.setContent(R.id.tab2);
+        spec2.setIndicator("Form");
+        tabs.addTab(spec2);
+
+
     }
 
 
