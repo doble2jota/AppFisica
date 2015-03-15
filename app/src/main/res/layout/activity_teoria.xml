@@ -31,5 +31,15 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Además de la existencia de fuentes de FEM de corriente directa o continua (C.D.) (como la que suministran las pilas o las baterías, cuya tensión o voltaje mantiene siempre su polaridad fija), se genera también otro tipo de corriente denominada alterna (C.A.), que se diferencia de la directa por el cambio constante de polaridad que efectúa por cada ciclo de tiempo."
             android:id="@+id/textView5" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/alterna4"
+            android:paddingTop="20dp"
+            android:src="@drawable/alterna4" />
+
+
     </LinearLayout>
+
 </RelativeLayout>
