@@ -12,18 +12,38 @@
         android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+
+        android:id="@+id/Linear2">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Corriente Alterna"
+        android:id="@+id/textView"
+        android:textColor="#669900"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+         />
+    </LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:padding="2dp"
+        android:paddingTop="20dp"
+        android:layout_marginTop="57dp"
         android:id="@+id/Linear1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Corriente Alterna"
-            android:id="@+id/textView4"
-            android:textColor="#669900"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="57dp" />
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,7 +59,17 @@
             android:paddingTop="20dp"
             android:src="@drawable/alterna4" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="La característica principal de una corriente alterna es que durante un instante de tiempo un polo es negativo y el otro positivo, mientras que en el instante siguiente las polaridades se invierten tantas veces como ciclos por segundo o hertz posea esa corriente. No obstante, aunque se produzca un constante cambio de polaridad, la corriente siempre fluirá del polo negativo al positivo, tal como ocurre en las fuentes de FEM que suministran corriente directa."
+            android:id="@+id/textView6" />
+
+
 
     </LinearLayout>
+    </ScrollView>
+
 
 </RelativeLayout>
