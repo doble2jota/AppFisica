@@ -29,7 +29,7 @@ public class TeoriaActivity extends ActionBarActivity {
         spec2.setContent(R.id.tab2);
         spec2.setIndicator("Formulas");
         tabs.addTab(spec2);
-
+ 
 
     }
 
