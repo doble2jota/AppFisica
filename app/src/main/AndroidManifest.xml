@@ -27,6 +27,10 @@
             android:name=".TeoriaActivity"
             android:label="@string/title_activity_teoria" >
         </activity>
+        <activity
+            android:name=".CircuitosActivity"
+            android:label="@string/title_activity_circuitos" >
+        </activity>
     </application>
 
 </manifest>

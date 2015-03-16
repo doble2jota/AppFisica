@@ -6,4 +6,5 @@
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_botonera_menu">BotoneraMenu</string>
     <string name="title_activity_teoria">TeoriaActivity</string>
+    <string name="title_activity_circuitos">CircuitosActivity</string>
 </resources>

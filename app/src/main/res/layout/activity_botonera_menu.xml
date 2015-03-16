@@ -33,7 +33,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
+        android:id="@+id/bcircuitos"
         android:drawableLeft="@drawable/bcircuitos"
         android:background="#FFFFFF"
         android:layout_alignTop="@+id/bteoria"
@@ -54,8 +54,8 @@
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button4"
-        android:layout_below="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_marginTop="67dp" />
+        android:layout_marginTop="83dp"
+        android:layout_below="@+id/bcircuitos"
+        android:layout_alignLeft="@+id/bcircuitos"
+        android:layout_alignStart="@+id/bcircuitos" />
 </RelativeLayout>

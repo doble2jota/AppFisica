@@ -1,39 +1,44 @@
 package com.example.javier.appfisica;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.TabHost;
 
 
-public class BotoneraMenu extends ActionBarActivity {
+public class CircuitosActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_botonera_menu);
+        setContentView(R.layout.activity_circuitos);
 
-        Button button1 = (Button) findViewById(R.id.bteoria);
-        button1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent act = new Intent(BotoneraMenu.this, TeoriaActivity.class);
-                startActivity(act);
-            }
 
-        });
+        Resources res= getResources();
+        TabHost tabs = (TabHost)findViewById(android.R.id.tabhost);
 
-        Button button2 = (Button) findViewById(R.id.bcircuitos);
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent act2 = new Intent(BotoneraMenu.this, CircuitosActivity.class);
-                startActivity(act2);
-            }
+        tabs.setup();
+        TabHost.TabSpec spec3 = tabs.newTabSpec("Serie");
+        spec3.setContent(R.id.tabc1);
+        spec3.setIndicator("serie");
+        tabs.addTab(spec3);
 
-        });
+        tabs.setup();
+        TabHost.TabSpec spec4 = tabs.newTabSpec("Paralelo");
+        spec4.setContent(R.id.tabc2);
+        spec4.setIndicator("Paralelo");
+        tabs.addTab(spec4);
+
+        tabs.setup();
+        TabHost.TabSpec spec5 = tabs.newTabSpec("Combinado");
+        spec5.setContent(R.id.tabc3);
+        spec5.setIndicator("Combinado");
+        tabs.addTab(spec5);
+
+
+
 
     }
 
@@ -41,7 +46,7 @@ public class BotoneraMenu extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_botonera_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_circuitos, menu);
         return true;
     }
 
@@ -59,5 +64,4 @@ public class BotoneraMenu extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

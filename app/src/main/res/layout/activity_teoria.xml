@@ -117,11 +117,10 @@
                                 <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
+                                    android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:padding="2dp"
-
                         android:id="@+id/Linear3">
                         <ImageView
                             android:layout_width="wrap_content"
