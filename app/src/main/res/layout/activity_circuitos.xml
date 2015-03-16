@@ -60,6 +60,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="V: "/>
                             <EditText
+                                android:id="@+id/vS"
                                 android:layout_width="103dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
@@ -73,12 +74,13 @@
                                 android:id="@+id/textView4" />
 
                             <EditText
+                                android:id="@+id/rS"
                                 android:layout_width="103dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentLeft="true"
                                 android:layout_alignParentStart="true"
-                                android:id="@+id/editText" />
+                                />
 
 
                         </LinearLayout>
@@ -95,6 +97,7 @@
                                 android:text="L: " />
 
                             <EditText
+                                android:id="@+id/lS"
                                 android:layout_width="103dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
@@ -106,6 +109,7 @@
                                 android:text="C: " />
 
                             <EditText
+                                android:id="@+id/cS"
                                 android:layout_width="103dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
@@ -122,6 +126,82 @@
                         android:layout_height="fill_parent"
                         android:orientation="vertical">
 
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/circuito2"
+                            android:layout_gravity="center"
+                            android:paddingTop="7dp"
+                            android:src="@drawable/circuito1" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Introduzca los valores de tensión V,resistencia R, bobina L y capaciodad C:"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="V: "/>
+                            <EditText
+                                android:id="@+id/vP"
+                                android:layout_width="103dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="R: "
+                                android:id="@+id/textView5" />
+
+                            <EditText
+                                android:layout_width="103dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:id="@+id/rP"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center_horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="L: " />
+
+                            <EditText
+                                android:id="@+id/lP"
+                                android:layout_width="103dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="C: " />
+
+                            <EditText
+                                android:id="@+id/cP"
+                                android:layout_width="103dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
