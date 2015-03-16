@@ -133,7 +133,7 @@
                             android:id="@+id/circuito2"
                             android:layout_gravity="center"
                             android:paddingTop="7dp"
-                            android:src="@drawable/circuito1" />
+                            android:src="@drawable/circuito2" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
