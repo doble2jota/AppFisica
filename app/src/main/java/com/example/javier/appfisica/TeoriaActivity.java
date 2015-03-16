@@ -22,6 +22,9 @@ public class TeoriaActivity extends ActionBarActivity {
         TabHost.TabSpec spec = tabs.newTabSpec("Teoría");
         spec.setContent(R.id.tab1);
         spec.setIndicator("Teoria");
+
+
+
         tabs.addTab(spec);
 
         tabs.setup();

@@ -4,6 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#FFFFFF"
     tools:context="com.example.javier.appfisica.TeoriaActivity">
 
     <LinearLayout
@@ -25,7 +26,8 @@
 
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@android:id/tabs"></TabWidget>
+                    android:id="@android:id/tabs"
+                    android:background="#ff7b991e"></TabWidget>
 
                 <FrameLayout
                     android:id="@android:id/tabcontent"
@@ -43,7 +45,7 @@
                                 android:layout_height="wrap_content"
                                 android:textAppearance="?android:attr/textAppearanceLarge"
                                 android:text="Corriente Alterna"
-                                android:id="@+id/textView"
+                                android:id="@+id/titulo1"
                                 android:textColor="#669900"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
@@ -53,7 +55,7 @@
                         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:paddingTop="57dp">
+                            android:paddingTop="5dp">
 
                             <LinearLayout
                                 android:orientation="vertical"
@@ -98,13 +100,36 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:orientation="vertical">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:text="Large Text"
-                            android:id="@+id/textView4" />
+                            android:text="Corriente Alterna"
+                            android:id="@+id/titulo2"
+                            android:textColor="#669900"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            />
+                        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp">
+                                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentTop="true"
+                        android:padding="2dp"
+
+                        android:id="@+id/Linear3">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/formulas"
+                            android:src="@drawable/formulas" />
+                    </LinearLayout>
+                        </ScrollView>
                     </LinearLayout>
 
                 </FrameLayout>
