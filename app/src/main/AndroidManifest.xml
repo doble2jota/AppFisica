@@ -4,6 +4,14 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -30,6 +38,10 @@
         <activity
             android:name=".CircuitosActivity"
             android:label="@string/title_activity_circuitos" >
+        </activity>
+        <activity
+            android:name=".CalculosActivity"
+            android:label="CalculosActivity" >
         </activity>
     </application>
 

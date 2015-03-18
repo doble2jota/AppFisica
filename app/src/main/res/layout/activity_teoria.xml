@@ -40,16 +40,16 @@
                         android:layout_height="fill_parent"
                         android:orientation="vertical">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:text="Corriente Alterna"
-                                android:id="@+id/titulo1"
-                                android:textColor="#669900"
-                                android:layout_alignParentTop="true"
-                                android:layout_centerHorizontal="true"
-                                />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Corriente Alterna"
+                            android:id="@+id/titulo1"
+                            android:textColor="#669900"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            />
 
 
                         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -114,20 +114,20 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="5dp">
-                                <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="fill_parent"
-                        android:layout_centerHorizontal="true"
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_centerHorizontal="true"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:padding="2dp"
+                                android:id="@+id/Linear3">
+                                <ImageView
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:padding="2dp"
-                        android:id="@+id/Linear3">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/formulas"
-                            android:src="@drawable/formulas" />
-                    </LinearLayout>
+                                    android:id="@+id/formulas"
+                                    android:src="@drawable/formulas" />
+                            </LinearLayout>
                         </ScrollView>
                     </LinearLayout>
 
