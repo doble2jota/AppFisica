@@ -76,7 +76,7 @@ public class CircuitosActivity extends ActionBarActivity {
                 i.putExtra("vSi",vS.getText().toString());
                 i.putExtra("cSi",cS.getText().toString());
                 i.putExtra("lSi",lS.getText().toString());
-                i.putExtra("pp","q");
+
                 startActivity(i);
             }
 
