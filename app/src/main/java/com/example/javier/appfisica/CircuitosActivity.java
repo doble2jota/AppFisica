@@ -35,7 +35,6 @@ public class CircuitosActivity extends ActionBarActivity {
         //Rellenamos spiners
 
         final Spinner spinner1 = (Spinner) findViewById(R.id.spinner);
-
         String []opciones={"V","mV","µV","nV"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones);
         spinner1.setAdapter(adapter);
@@ -57,6 +56,32 @@ public class CircuitosActivity extends ActionBarActivity {
         String []opciones4={"F","mF","µF","nF"};
         ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones4);
         spinner4.setAdapter(adapter4);
+
+        final Spinner spinner5 = (Spinner) findViewById(R.id.spinner5);
+
+        String []opciones5={"V","mV","µV","nV"};
+        ArrayAdapter<String> adapter5 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones5);
+        spinner5.setAdapter(adapter5);
+
+
+        final Spinner spinner6 = (Spinner) findViewById(R.id.spinner6);
+        String []opciones6={"Ω","mΩ","µΩ","nΩ"};
+        ArrayAdapter<String> adapter6 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones6);
+        spinner6.setAdapter(adapter6);
+
+        final Spinner spinner7 = (Spinner) findViewById(R.id.spinner7);
+        String []opciones7={"H","mH","µH","nH"};
+        ArrayAdapter<String> adapter7 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones7);
+        spinner7.setAdapter(adapter7);
+
+
+        final Spinner spinner8 = (Spinner) findViewById(R.id.spinner8);
+
+        String []opciones8={"F","mF","µF","nF"};
+        ArrayAdapter<String> adapter8 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones8);
+        spinner8.setAdapter(adapter8);
+
+
         //TABS PARTE SUPERIOR
 
         Resources res= getResources();
@@ -139,8 +164,41 @@ public class CircuitosActivity extends ActionBarActivity {
         //boton calculos de c Paralelo
         botonP.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i2= new Intent(CircuitosActivity.this, CalculosActivity.class);
-                startActivity(i2);
+
+                if (((vP.getText().toString()).equals("")) || ((rP.getText().toString()).equals("")) || ((cP.getText().toString()).equals("")) || ((lP.getText().toString()).equals(""))) {
+
+                    Toast.makeText(getApplicationContext(), "Rellene todos los campos por favor",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+
+
+                    Intent i2 = new Intent(CircuitosActivity.this, CalculosActivity.class);
+
+                    Editable p = rP.getText();
+
+                    Log.e("SPINER", spinner5.getSelectedItem().toString());
+
+                    i2.putExtra("rPi", rP.getText().toString());
+                    i2.putExtra("vPi", vP.getText().toString());
+                    i2.putExtra("cPi", cP.getText().toString());
+                    i2.putExtra("lPi", lP.getText().toString());
+
+                    //spinner1
+                    i2.putExtra("sp5", spinner5.getSelectedItem().toString());
+
+                    //spinner2
+                    i2.putExtra("sp6", spinner6.getSelectedItem().toString());
+
+                    //spinner3
+                    i2.putExtra("sp7", spinner7.getSelectedItem().toString());
+
+                    //spinner4
+                    i2.putExtra("sp8", spinner8.getSelectedItem().toString());
+
+
+                    startActivity(i2);
+                }
             }
 
         });

@@ -53,7 +53,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Introduzca los valores de tensión V,resistencia R, bobina L y capaciodad C:"/>
+                            android:text="Introduzca los valores de tensión V,resistencia R, bobina L y capacidad C:"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -191,7 +191,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Introduzca los valores de tensión V,resistencia R, bobina L y capaciodad C:"/>
+                            android:text="Introduzca los valores de tensión V,resistencia R, bobina L y capacidad C:"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -202,6 +202,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="V: "/>
                             <EditText
+                                android:text="15"
                                 android:id="@+id/vP"
                                 android:layout_width="103dp"
                                 android:layout_height="wrap_content"
@@ -210,6 +211,16 @@
                                 android:layout_alignParentStart="true"
                                 android:inputType="numberDecimal"/>
 
+                            <Spinner
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/spinner5"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -217,17 +228,23 @@
                                 android:id="@+id/textView5" />
 
                             <EditText
+                                android:id="@+id/rP"
+                                android:text="150"
                                 android:layout_width="103dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentLeft="true"
                                 android:layout_alignParentStart="true"
-                                android:id="@+id/rP"
-                                android:inputType="numberDecimal"/>
+                                android:inputType="numberDecimal"
+                                />
+                            <Spinner
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/spinner6"
+                                android:layout_weight="1" />
 
 
                         </LinearLayout>
-
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -246,20 +263,42 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentLeft="true"
                                 android:layout_alignParentStart="true"
+                                android:text="200"
                                 android:inputType="numberDecimal"/>
+
+                            <Spinner
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/spinner7"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center_horizontal">
+
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="C: " />
 
+
                             <EditText
                                 android:id="@+id/cP"
+                                android:text="25"
                                 android:layout_width="103dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentLeft="true"
                                 android:layout_alignParentStart="true"
                                 android:inputType="numberDecimal"/>
+                            <Spinner
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/spinner8"
+                                android:layout_weight="1" />
                         </LinearLayout>
                         <Button
                             android:layout_width="wrap_content"

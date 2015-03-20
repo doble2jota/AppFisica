@@ -22,6 +22,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,18 +32,22 @@
         </activity>
         <activity
             android:name=".BotoneraMenu"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_botonera_menu" >
         </activity>
         <activity
             android:name=".TeoriaActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_teoria" >
         </activity>
         <activity
             android:name=".CircuitosActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_circuitos" >
         </activity>
         <activity
             android:name=".CalculosActivity"
+            android:screenOrientation="portrait"
             android:label="CalculosActivity" >
         </activity>
     </application>
