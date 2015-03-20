@@ -57,13 +57,13 @@ public class CalculosActivity extends ActionBarActivity {
             vS=vS*0.001;
         }
         //capacidad
-        if(sp4.equals("µC")){
+        if(sp4.equals("µF")){
             cS=cS*0.000001;
         }
-        if(sp4.equals("nC")){
+        if(sp4.equals("nF")){
             cS=cS*0.000000001;
         }
-        if(sp4.equals("mC")){
+        if(sp4.equals("mF")){
             cS=cS*0.001;
         }
         //inductancia
@@ -77,13 +77,13 @@ public class CalculosActivity extends ActionBarActivity {
             lS=lS*0.001;
         }
         //REsistencia
-        if(sp2.equals("µR")){
+        if(sp2.equals("µΩ")){
             rS=rS*0.000001;
         }
-        if(sp2.equals("nR")){
+        if(sp2.equals("nΩ")){
             rS=rS*0.000000001;
         }
-        if(sp2.equals("mR")){
+        if(sp2.equals("mΩ")){
             rS=rS*0.001;
         }
 

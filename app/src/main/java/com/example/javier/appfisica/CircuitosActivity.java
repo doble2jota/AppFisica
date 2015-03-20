@@ -36,25 +36,25 @@ public class CircuitosActivity extends ActionBarActivity {
 
         final Spinner spinner1 = (Spinner) findViewById(R.id.spinner);
 
-        String []opciones={"µV","nV","mV","V"};
+        String []opciones={"V","mV","µV","nV"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones);
         spinner1.setAdapter(adapter);
 
 
         final Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
-        String []opciones2={"µA","nA","mA","A"};
+        String []opciones2={"Ω","mΩ","µΩ","nΩ"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones2);
         spinner2.setAdapter(adapter2);
 
         final Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
-        String []opciones3={"µH","nH","mH","H"};
+        String []opciones3={"H","mH","µH","nH"};
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones3);
         spinner3.setAdapter(adapter3);
 
 
         final Spinner spinner4 = (Spinner) findViewById(R.id.spinner4);
 
-        String []opciones4={"µC","nC","mC","C"};
+        String []opciones4={"F","mF","µF","nF"};
         ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones4);
         spinner4.setAdapter(adapter4);
         //TABS PARTE SUPERIOR

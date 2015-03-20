@@ -24,6 +24,7 @@ public class BotoneraMenu extends ActionBarActivity {
             public void onClick(View v) {
                 Intent act = new Intent(BotoneraMenu.this, TeoriaActivity.class);
                 startActivity(act);
+
             }
 
         });
