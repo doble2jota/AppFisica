@@ -24,7 +24,7 @@ public class CircuitosActivity extends ActionBarActivity {
 
     //DECLARAMOS LA VARIABLES DE LOS EDIT TEXT
 
-    private EditText rS,lS,cS,vS,rP,lP,cP,vP;
+    private EditText rS,lS,cS,vS,rP,lP,cP,vP,rC,lC,cC,vC;
 
 
     @Override
@@ -34,6 +34,7 @@ public class CircuitosActivity extends ActionBarActivity {
 
         //Rellenamos spiners
 
+        //TAB SERIE
         final Spinner spinner1 = (Spinner) findViewById(R.id.spinner);
         String []opciones={"V","mV","µV","nV"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones);
@@ -57,6 +58,8 @@ public class CircuitosActivity extends ActionBarActivity {
         ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones4);
         spinner4.setAdapter(adapter4);
 
+
+        //TAB PARALELO
         final Spinner spinner5 = (Spinner) findViewById(R.id.spinner5);
 
         String []opciones5={"V","mV","µV","nV"};
@@ -76,10 +79,34 @@ public class CircuitosActivity extends ActionBarActivity {
 
 
         final Spinner spinner8 = (Spinner) findViewById(R.id.spinner8);
-
         String []opciones8={"F","mF","µF","nF"};
         ArrayAdapter<String> adapter8 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones8);
         spinner8.setAdapter(adapter8);
+
+        //TAB COMBINADO
+
+        final Spinner spinner9 = (Spinner) findViewById(R.id.spinner9);
+        String []opciones9={"V","mV","µV","nV"};
+        ArrayAdapter<String> adapter9 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones9);
+        spinner9.setAdapter(adapter9);
+
+
+        final Spinner spinner10 = (Spinner) findViewById(R.id.spinner10);
+        String []opciones10={"Ω","mΩ","µΩ","nΩ"};
+        ArrayAdapter<String> adapter10 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones10);
+        spinner10.setAdapter(adapter10);
+
+        final Spinner spinner11 = (Spinner) findViewById(R.id.spinner11);
+        String []opciones11={"H","mH","µH","nH"};
+        ArrayAdapter<String> adapter11 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones11);
+        spinner11.setAdapter(adapter11);
+
+
+        final Spinner spinner12 = (Spinner) findViewById(R.id.spinner12);
+
+        String []opciones12={"F","mF","µF","nF"};
+        ArrayAdapter<String> adapter12 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones12);
+        spinner12.setAdapter(adapter12);
 
 
         //TABS PARTE SUPERIOR
@@ -108,20 +135,30 @@ public class CircuitosActivity extends ActionBarActivity {
         //declaramos botones
         Button botonS = (Button) findViewById(R.id.calcularC1);
         Button botonP = (Button) findViewById(R.id.calcularC2);
+        Button botonC = (Button) findViewById(R.id.calcularC3);
 
         //declaramos edit text
+
+        //SERIE
         rS=(EditText)findViewById(R.id.rS);
         lS=(EditText)findViewById(R.id.lS);
         cS=(EditText)findViewById(R.id.cS);
         vS=(EditText)findViewById(R.id.vS);
 
+        //PARALELO
         rP=(EditText)findViewById(R.id.rP);
         lP=(EditText)findViewById(R.id.lP);
         cP=(EditText)findViewById(R.id.cP);
         vP=(EditText)findViewById(R.id.vP);
 
+        //COMBINADO
+        rC=(EditText)findViewById(R.id.rC);
+        lC=(EditText)findViewById(R.id.lC);
+        cC=(EditText)findViewById(R.id.cC);
+        vC=(EditText)findViewById(R.id.vC);
 
-        //boton calculos de c Serie
+
+        //boton calculos de s Serie
         botonS.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -161,7 +198,7 @@ public class CircuitosActivity extends ActionBarActivity {
             }
         });
 
-        //boton calculos de c Paralelo
+        //boton calculos de p Paralelo
         botonP.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -203,7 +240,50 @@ public class CircuitosActivity extends ActionBarActivity {
 
         });
 
-    }
+
+        //boton calculos de C Combinado
+        botonC.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                if (((vC.getText().toString()).equals("")) || ((rC.getText().toString()).equals("")) || ((cC.getText().toString()).equals("")) || ((lC.getText().toString()).equals(""))) {
+
+                    Toast.makeText(getApplicationContext(), "Rellene todos los campos por favor",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+
+
+                    Intent i3 = new Intent(CircuitosActivity.this, CalculosActivity.class);
+
+                    Editable C = rC.getText();
+
+                    Log.e("SPINER10", spinner10.getSelectedItem().toString());
+
+                    i3.putExtra("rCi", rC.getText().toString());
+                    i3.putExtra("vCi", vC.getText().toString());
+                    i3.putExtra("cCi", cC.getText().toString());
+                    i3.putExtra("lCi", lC.getText().toString());
+
+                    //spinner1
+                    i3.putExtra("sp10", spinner5.getSelectedItem().toString());
+
+                    //spinner2
+                    i3.putExtra("sp11", spinner6.getSelectedItem().toString());
+
+                    //spinner3
+                    i3.putExtra("sp12", spinner7.getSelectedItem().toString());
+
+                    //spinner4
+                    i3.putExtra("sp13", spinner8.getSelectedItem().toString());
+
+
+                    startActivity(i3);
+                }
+            }
+
+        });
+
+}
 
 
     @Override
