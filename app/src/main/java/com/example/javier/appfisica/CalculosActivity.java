@@ -5,17 +5,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
 public class CalculosActivity extends ActionBarActivity {
 
-
-    LinearLayout ll = (LinearLayout) findViewById(R.id.contenedor);
-
-    TextView impedanciaTotal= (TextView) ll.findViewById(R.id.impedanciaT);
-
+    TextView impT =(TextView)findViewById(R.id.impedanciat);
 
 
     private Float rS,lS,cS,vS;
@@ -30,7 +25,7 @@ public class CalculosActivity extends ActionBarActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculos);
+        setContentView(R.layout.activity_calculos2);
 
 
         //recogemos valores del intent que tenemos q convertir a float
@@ -55,7 +50,9 @@ public class CalculosActivity extends ActionBarActivity {
 
         Log.e("2222","angulo "+angulo);
         //añadimos al textview
-        impedanciaTotal.setText(zT+"  "+angulo+"º");
+
+        impT.setText("fdsfsdf");
+
 
     }
 
