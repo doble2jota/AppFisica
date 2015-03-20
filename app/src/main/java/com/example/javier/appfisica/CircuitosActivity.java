@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 // actividad que contiene los ciruitos
 
@@ -32,24 +34,26 @@ public class CircuitosActivity extends ActionBarActivity {
 
         //Rellenamos spiners
 
-        Spinner spinner1 = (Spinner) findViewById(R.id.spinner);
-        String []opciones={" V"};
+        final Spinner spinner1 = (Spinner) findViewById(R.id.spinner);
+
+        String []opciones={"µV","nV","mV","V"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones);
         spinner1.setAdapter(adapter);
 
 
-        Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
+        final Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
         String []opciones2={"µA","nA","mA","A"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones2);
         spinner2.setAdapter(adapter2);
 
-        Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
+        final Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
         String []opciones3={"µH","nH","mH","H"};
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones3);
         spinner3.setAdapter(adapter3);
 
 
-        Spinner spinner4 = (Spinner) findViewById(R.id.spinner4);
+        final Spinner spinner4 = (Spinner) findViewById(R.id.spinner4);
+
         String []opciones4={"µC","nC","mC","C"};
         ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones4);
         spinner4.setAdapter(adapter4);
@@ -95,17 +99,41 @@ public class CircuitosActivity extends ActionBarActivity {
         //boton calculos de c Serie
         botonS.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i= new Intent(CircuitosActivity.this, CalculosActivity.class);
-                Editable s= rS.getText();
 
-                i.putExtra("rSi",rS.getText().toString());
-                i.putExtra("vSi",vS.getText().toString());
-                i.putExtra("cSi",cS.getText().toString());
-                i.putExtra("lSi",lS.getText().toString());
+                if (((vS.getText().toString()).equals("")) || ((rS.getText().toString()).equals("")) || ((cS.getText().toString()).equals("")) || ((lS.getText().toString()).equals(""))) {
 
-                startActivity(i);
+                    Toast.makeText(getApplicationContext(), "Rellene todos los campos por favor",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+
+
+                    Intent i = new Intent(CircuitosActivity.this, CalculosActivity.class);
+                    Editable s = rS.getText();
+
+                    Log.e("SPINER", spinner1.getSelectedItem().toString());
+
+                    i.putExtra("rSi", rS.getText().toString());
+                    i.putExtra("vSi", vS.getText().toString());
+                    i.putExtra("cSi", cS.getText().toString());
+                    i.putExtra("lSi", lS.getText().toString());
+
+                    //spinner1
+                    i.putExtra("sp1", spinner1.getSelectedItem().toString());
+
+                    //spinner2
+                    i.putExtra("sp2", spinner2.getSelectedItem().toString());
+
+                    //spinner3
+                    i.putExtra("sp3", spinner3.getSelectedItem().toString());
+
+                    //spinner4
+                    i.putExtra("sp4", spinner4.getSelectedItem().toString());
+
+
+                    startActivity(i);
+                }
             }
-
         });
 
         //boton calculos de c Paralelo

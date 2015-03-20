@@ -13,13 +13,21 @@ public class CalculosActivity extends ActionBarActivity {
     private TextView impT;
 
 
-    private Float rS,lS,cS,vS;
+    private double rS;
+    private double lS;
+    private double cS;
+    private double vS;
     final float hz= 50;
-    float xL; //reactancia inductiva
-    float xC; //reactancia capacitiva
-    float x;  //xtriagulo
-    float zT;  //impedancia total
+    double xL; //reactancia inductiva
+    double xC; //reactancia capacitiva
+    double x;  //xtriagulo
+    double zT;  //impedancia total
     float angulo;
+    String sp1;
+    String sp2;
+    String sp3;
+    String sp4;
+
     final float w= 2 * (float) Math.PI* hz;
     @Override
 
@@ -33,8 +41,55 @@ public class CalculosActivity extends ActionBarActivity {
         lS  = Float.parseFloat(this.getIntent().getStringExtra("lSi"));
         cS  = Float.parseFloat(this.getIntent().getStringExtra("cSi"));
         vS  = Float.parseFloat(this.getIntent().getStringExtra("vSi"));
+        sp1 = this.getIntent().getStringExtra("sp1");
+        sp2 = this.getIntent().getStringExtra("sp2");
+        sp3 = this.getIntent().getStringExtra("sp3");
+        sp4 = this.getIntent().getStringExtra("sp4");
+
+        //para voltios
+        if(sp1.equals("µV")){
+            vS=vS*0.000001;
+        }
+        if(sp1.equals("nV")){
+            vS=vS*0.000000001;
+        }
+        if(sp1.equals("mV")){
+            vS=vS*0.001;
+        }
+        //capacidad
+        if(sp4.equals("µC")){
+            cS=cS*0.000001;
+        }
+        if(sp4.equals("nC")){
+            cS=cS*0.000000001;
+        }
+        if(sp4.equals("mC")){
+            cS=cS*0.001;
+        }
+        //inductancia
+        if(sp3.equals("µH")){
+            lS=lS*0.000001;
+        }
+        if(sp3.equals("nH")){
+            lS=lS*0.000000001;
+        }
+        if(sp3.equals("mH")){
+            lS=lS*0.001;
+        }
+        //REsistencia
+        if(sp2.equals("µR")){
+            rS=rS*0.000001;
+        }
+        if(sp2.equals("nR")){
+            rS=rS*0.000000001;
+        }
+        if(sp2.equals("mR")){
+            rS=rS*0.001;
+        }
+
         //calculamos reactancia induztiva
         xL=w*lS;
+
         xC=(1/(w*cS));
         Log.e("2222","reactancia induztiva "+xL);
         Log.e("2222","reactancia reactiva "+xC);
