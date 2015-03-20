@@ -8,8 +8,10 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TabHost;
 
 // actividad que contiene los ciruitos
@@ -28,7 +30,31 @@ public class CircuitosActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_circuitos);
 
+        //Rellenamos spiners
+
+        Spinner spinner1 = (Spinner) findViewById(R.id.spinner);
+        String []opciones={" V"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones);
+        spinner1.setAdapter(adapter);
+
+
+        Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
+        String []opciones2={"µA","nA","mA","A"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones2);
+        spinner2.setAdapter(adapter2);
+
+        Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
+        String []opciones3={"µH","nH","mH","H"};
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones3);
+        spinner3.setAdapter(adapter3);
+
+
+        Spinner spinner4 = (Spinner) findViewById(R.id.spinner4);
+        String []opciones4={"µC","nC","mC","C"};
+        ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones4);
+        spinner4.setAdapter(adapter4);
         //TABS PARTE SUPERIOR
+
         Resources res= getResources();
         TabHost tabs = (TabHost)findViewById(android.R.id.tabhost);
 
