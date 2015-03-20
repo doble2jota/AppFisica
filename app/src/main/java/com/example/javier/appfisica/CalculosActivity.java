@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class CalculosActivity extends ActionBarActivity {
 
-    TextView impT =(TextView)findViewById(R.id.impedanciat);
+    private TextView impT;
 
 
     private Float rS,lS,cS,vS;
@@ -50,8 +50,8 @@ public class CalculosActivity extends ActionBarActivity {
 
         Log.e("2222","angulo "+angulo);
         //añadimos al textview
-
-        impT.setText("fdsfsdf");
+        impT=(TextView)findViewById(R.id.impedanciat);
+        impT.setText(zT+" "+angulo+"º");
 
 
     }
