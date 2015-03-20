@@ -140,8 +140,6 @@ public class CalculosActivity extends ActionBarActivity {
         //añadimos al textview
         impT=(TextView)findViewById(R.id.impedanciat);
         impT.setText(zT+" "+angulo+"º");
-
-
     }
 
 
