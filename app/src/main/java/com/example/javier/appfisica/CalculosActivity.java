@@ -53,34 +53,137 @@ public class CalculosActivity extends ActionBarActivity {
         setContentView(R.layout.activity_calculos2);
 
 
-        //recogemos valores del intent que tenemos q convertir a float
-        rS  = Float.parseFloat(this.getIntent().getStringExtra("rSi"));
-        lS  = Float.parseFloat(this.getIntent().getStringExtra("lSi"));
-        cS  = Float.parseFloat(this.getIntent().getStringExtra("cSi"));
-        vS  = Float.parseFloat(this.getIntent().getStringExtra("vSi"));
-        rP  = Float.parseFloat(this.getIntent().getStringExtra("rPi"));
-        lP  = Float.parseFloat(this.getIntent().getStringExtra("lPi"));
-        cP  = Float.parseFloat(this.getIntent().getStringExtra("cPi"));
-        vP  = Float.parseFloat(this.getIntent().getStringExtra("vPi"));
-        rC  = Float.parseFloat(this.getIntent().getStringExtra("rCi"));
-        lC  = Float.parseFloat(this.getIntent().getStringExtra("lCi"));
-        cC  = Float.parseFloat(this.getIntent().getStringExtra("cCi"));
-        vC  = Float.parseFloat(this.getIntent().getStringExtra("vCi"));
-        sp1 = this.getIntent().getStringExtra("sp1");
-        sp2 = this.getIntent().getStringExtra("sp2");
-        sp3 = this.getIntent().getStringExtra("sp3");
-        sp4 = this.getIntent().getStringExtra("sp4");
-        sp5 = this.getIntent().getStringExtra("sp5");
-        sp6 = this.getIntent().getStringExtra("sp6");
-        sp7 = this.getIntent().getStringExtra("sp7");
-        sp8 = this.getIntent().getStringExtra("sp8");
-        sp9 = this.getIntent().getStringExtra("sp9");
-        sp10 = this.getIntent().getStringExtra("sp10");
-        sp11 = this.getIntent().getStringExtra("sp11");
-        sp12 = this.getIntent().getStringExtra("sp12");
+
+        //try para comparar , puesto que si hay nulls los if no funcionan
+
+        try{
+            //dentro de este if van las operaciones relativas al circuito serie
+            if((this.getIntent().getStringExtra("serie").equals("SERIE"))) {
+
+                //recogemos valores del intent que tenemos q convertir a float
+                rS = Float.parseFloat(this.getIntent().getStringExtra("rSi"));
+                lS = Float.parseFloat(this.getIntent().getStringExtra("lSi"));
+                cS = Float.parseFloat(this.getIntent().getStringExtra("cSi"));
+                vS = Float.parseFloat(this.getIntent().getStringExtra("vSi"));
+
+                sp1 = this.getIntent().getStringExtra("sp1");
+                sp2 = this.getIntent().getStringExtra("sp2");
+                sp3 = this.getIntent().getStringExtra("sp3");
+                sp4 = this.getIntent().getStringExtra("sp4");
+
+                if(sp1.equals("µV")){ vS=vS*0.000001;}
+                if(sp1.equals("nV")){ vS=vS*0.000000001;}
+                if(sp1.equals("mV")){ vS=vS*0.001;}
+                //capacidad
+                if(sp4.equals("µF")){ cS=cS*0.000001;}
+                if(sp4.equals("nF")){ cS=cS*0.000000001;}
+                if(sp4.equals("mF")){ cS=cS*0.001;}
+                //inductancia
+                if(sp3.equals("µH")){ lS=lS*0.000001; }
+                if(sp3.equals("nH")){ lS=lS*0.000000001;}
+                if(sp3.equals("mH")){ lS=lS*0.001;}
+                //REsistencia
+                if(sp2.equals("µΩ")){ rS=rS*0.000001;}
+                if(sp2.equals("nΩ")){rS=rS*0.000000001;}
+                if(sp2.equals("mΩ")){ rS=rS*0.001;}
+
+                //calculamos reactancia induztiva
+                xL=w*lS;
+
+                xC=(1/(w*cS));
+                Log.e("2222","reactancia induztiva "+xL);
+                Log.e("2222","reactancia reactiva "+xC);
+                x=xL-xC;
+                Log.e("2222","x "+x);
+                zT=(float)Math.pow(rS, 2)+ (float)Math.pow(x, 2);
+                zT=(float)Math.sqrt(zT);
+                Log.e("2222","impedancia total "+zT);
+                Log.e("2222","rs "+rS);
+                //calculamos el angulo
+                angulo= (float) Math.atan(x/rS);
+                angulo= (float) Math.toDegrees(angulo);
+
+                Log.e("2222","angulo "+angulo);
+                //añadimos al textview
+                impT=(TextView)findViewById(R.id.impedanciat);
+                impT.setText(zT+" "+angulo+"º");
+
+                //captura de excepción
+            }}catch (NullPointerException e){
+            // try para el circuito paralelo
+            try {if((this.getIntent().getStringExtra("paralelo").equals("PARALELO"))) {
+                rP = Float.parseFloat(this.getIntent().getStringExtra("rPi"));
+                lP = Float.parseFloat(this.getIntent().getStringExtra("lPi"));
+                cP = Float.parseFloat(this.getIntent().getStringExtra("cPi"));
+                vP = Float.parseFloat(this.getIntent().getStringExtra("vPi"));
+                sp5 = this.getIntent().getStringExtra("sp5");
+                sp6 = this.getIntent().getStringExtra("sp6");
+                sp7 = this.getIntent().getStringExtra("sp7");
+                sp8 = this.getIntent().getStringExtra("sp8");
+                Log.e("dentro try2"," "+rP);
+                if(sp5.equals("µV")){ vS=vS*0.000001;}
+                if(sp5.equals("nV")){ vS=vS*0.000000001;}
+                if(sp5.equals("mV")){ vS=vS*0.001;}
+                //capacidad
+                if(sp8.equals("µF")){ cS=cS*0.000001;}
+                if(sp8.equals("nF")){ cS=cS*0.000000001;}
+                if(sp8.equals("mF")){ cS=cS*0.001;}
+                //inductancia
+                if(sp7.equals("µH")){ lS=lS*0.000001; }
+                if(sp7.equals("nH")){ lS=lS*0.000000001;}
+                if(sp7.equals("mH")){ lS=lS*0.001;}
+                //REsistencia
+                if(sp6.equals("µΩ")){ rS=rS*0.000001;}
+                if(sp6.equals("nΩ")){rS=rS*0.000000001;}
+                if(sp6.equals("mΩ")){ rS=rS*0.001;}
+
+
+            }}catch (NullPointerException e1){
+
+                // try para el circuito combinado
+                try {if((this.getIntent().getStringExtra("comb").equals("COMBINADO"))) {
+                    rC = Float.parseFloat(this.getIntent().getStringExtra("rCi"));
+                    lC = Float.parseFloat(this.getIntent().getStringExtra("lCi"));
+                    cC = Float.parseFloat(this.getIntent().getStringExtra("cCi"));
+                    vC = Float.parseFloat(this.getIntent().getStringExtra("vCi"));
+                    sp9 = this.getIntent().getStringExtra("sp9");
+                    sp10 = this.getIntent().getStringExtra("sp10");
+                    sp11 = this.getIntent().getStringExtra("sp11");
+                    sp12 = this.getIntent().getStringExtra("sp12");
+                    Log.e("dentro try3"," "+rC);
+                    if(sp9.equals("µV")){ vS=vS*0.000001;}
+                    if(sp9.equals("nV")){ vS=vS*0.000000001;}
+                    if(sp9.equals("mV")){ vS=vS*0.001;}
+                    //capacidad
+                    if(sp12.equals("µF")){ cS=cS*0.000001;}
+                    if(sp12.equals("nF")){ cS=cS*0.000000001;}
+                    if(sp12.equals("mF")){ cS=cS*0.001;}
+                    //inductancia
+                    if(sp11.equals("µH")){ lS=lS*0.000001; }
+                    if(sp11.equals("nH")){ lS=lS*0.000000001;}
+                    if(sp11.equals("mH")){ lS=lS*0.001;}
+                    //REsistencia
+                    if(sp10.equals("µΩ")){ rS=rS*0.000001;}
+                    if(sp10.equals("nΩ")){rS=rS*0.000000001;}
+                    if(sp10.equals("mΩ")){ rS=rS*0.001;}
+                }}catch (NullPointerException e2){
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
 
         //para voltios
-        if(sp1.equals("µV")||sp5.equals("µV")||sp9.equals("µV")){
+        /*if(sp1.equals("µV")||sp5.equals("µV")||sp9.equals("µV")){
             vS=vS*0.000001;
         }
         if(sp1.equals("nV")||sp5.equals("nV")||sp9.equals("nV")){
@@ -119,27 +222,7 @@ public class CalculosActivity extends ActionBarActivity {
         if(sp2.equals("mΩ")||sp6.equals("mΩ")||sp7.equals("mΩ")){
             rS=rS*0.001;
         }
-
-        //calculamos reactancia induztiva
-        xL=w*lS;
-
-        xC=(1/(w*cS));
-        Log.e("2222","reactancia induztiva "+xL);
-        Log.e("2222","reactancia reactiva "+xC);
-        x=xL-xC;
-        Log.e("2222","x "+x);
-        zT=(float)Math.pow(rS, 2)+ (float)Math.pow(x, 2);
-        zT=(float)Math.sqrt(zT);
-        Log.e("2222","impedancia total "+zT);
-        Log.e("2222","rs "+rS);
-        //calculamos el angulo
-        angulo= (float) Math.atan(x/rS);
-        angulo= (float) Math.toDegrees(angulo);
-
-        Log.e("2222","angulo "+angulo);
-        //añadimos al textview
-        impT=(TextView)findViewById(R.id.impedanciat);
-        impT.setText(zT+" "+angulo+"º");
+*/
     }
 
 

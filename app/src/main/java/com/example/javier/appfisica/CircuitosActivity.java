@@ -179,6 +179,7 @@ public class CircuitosActivity extends ActionBarActivity {
                     i.putExtra("vSi", vS.getText().toString());
                     i.putExtra("cSi", cS.getText().toString());
                     i.putExtra("lSi", lS.getText().toString());
+                    i.putExtra("serie", "SERIE");
 
                     //spinner1
                     i.putExtra("sp1", spinner1.getSelectedItem().toString());
@@ -220,17 +221,18 @@ public class CircuitosActivity extends ActionBarActivity {
                     i2.putExtra("vPi", vP.getText().toString());
                     i2.putExtra("cPi", cP.getText().toString());
                     i2.putExtra("lPi", lP.getText().toString());
+                    i2.putExtra("paralelo", "PARALELO");
 
-                    //spinner1
+                    //spinner5
                     i2.putExtra("sp5", spinner5.getSelectedItem().toString());
 
-                    //spinner2
+                    //spinner6
                     i2.putExtra("sp6", spinner6.getSelectedItem().toString());
 
-                    //spinner3
+                    //spinner7
                     i2.putExtra("sp7", spinner7.getSelectedItem().toString());
 
-                    //spinner4
+                    //spinner8
                     i2.putExtra("sp8", spinner8.getSelectedItem().toString());
 
 
@@ -257,24 +259,25 @@ public class CircuitosActivity extends ActionBarActivity {
 
                     Editable C = rC.getText();
 
-                    Log.e("SPINER10", spinner10.getSelectedItem().toString());
+                    Log.e("SPINER10", spinner9.getSelectedItem().toString());
 
                     i3.putExtra("rCi", rC.getText().toString());
                     i3.putExtra("vCi", vC.getText().toString());
                     i3.putExtra("cCi", cC.getText().toString());
                     i3.putExtra("lCi", lC.getText().toString());
+                    i3.putExtra("comb", "COMBINADO");
 
-                    //spinner1
-                    i3.putExtra("sp10", spinner5.getSelectedItem().toString());
+                    //spinner10
+                    i3.putExtra("sp9", spinner9.getSelectedItem().toString());
 
-                    //spinner2
-                    i3.putExtra("sp11", spinner6.getSelectedItem().toString());
+                    //spinner11
+                    i3.putExtra("sp10", spinner10.getSelectedItem().toString());
 
-                    //spinner3
-                    i3.putExtra("sp12", spinner7.getSelectedItem().toString());
+                    //spinner12
+                    i3.putExtra("sp11", spinner11.getSelectedItem().toString());
 
-                    //spinner4
-                    i3.putExtra("sp13", spinner8.getSelectedItem().toString());
+                    //spinner13
+                    i3.putExtra("sp12", spinner12.getSelectedItem().toString());
 
 
                     startActivity(i3);
