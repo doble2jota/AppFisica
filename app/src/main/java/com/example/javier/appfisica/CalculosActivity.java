@@ -78,7 +78,7 @@ public class CalculosActivity extends ActionBarActivity {
         //try para comparar , puesto que si hay nulls los if no funcionan
 
         try{
-            setContentView(R.layout.activity_calculos_sp);
+            setContentView(R.layout.activity_calculos_sp1);
             //dentro de este if van las operaciones relativas al circuito serie
             if((this.getIntent().getStringExtra("serie").equals("SERIE"))) {
 
@@ -165,7 +165,7 @@ public class CalculosActivity extends ActionBarActivity {
             }}catch (NullPointerException e){
             // try para el circuito paralelo
             try {if((this.getIntent().getStringExtra("paralelo").equals("PARALELO"))) {
-                setContentView(R.layout.activity_calculos_sp);
+                setContentView(R.layout.activity_calculos_sp1);
 
                 rP = Float.parseFloat(this.getIntent().getStringExtra("rPi"));
                 lP = Float.parseFloat(this.getIntent().getStringExtra("lPi"));
@@ -197,7 +197,7 @@ public class CalculosActivity extends ActionBarActivity {
 
                 // try para el circuito combinado
                 try {if((this.getIntent().getStringExtra("comb").equals("COMBINADO"))) {
-                    setContentView(R.layout.activity_calculos_c);
+                    setContentView(R.layout.activity_calculos_c1);
                     rC_1 = Float.parseFloat(this.getIntent().getStringExtra("rCi_1"));
                     rC_2 = Float.parseFloat(this.getIntent().getStringExtra("rCi_2"));
                     lC = Float.parseFloat(this.getIntent().getStringExtra("lCi"));
