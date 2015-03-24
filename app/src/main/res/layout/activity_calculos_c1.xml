@@ -131,7 +131,6 @@
             android:id="@+id/tensionL" />
     </LinearLayout>
 
-    <!-- Este hijo de p... se a descolocado no tocar!-->
 
     <TextView
         android:layout_width="wrap_content"

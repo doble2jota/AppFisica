@@ -31,7 +31,9 @@
                     android:layout_height="wrap_content"
                     android:id="@android:id/tabs"
                     android:background="#ff7b991e"></TabWidget>
-
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 <FrameLayout
                     android:id="@android:id/tabcontent"
                     android:layout_width="fill_parent"
@@ -319,7 +321,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/circuito2"
+                            android:id="@+id/circuito3"
                             android:layout_gravity="center"
                             android:paddingTop="7dp"
                             android:src="@drawable/circuito3" />
@@ -360,7 +362,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="R1:"
-                                android:id="@+id/textView6" />
+                                android:id="@+id/textView11" />
 
                             <EditText
                                 android:id="@+id/rC_1"
@@ -473,6 +475,7 @@
 
 
                 </FrameLayout>
+    </ScrollView>
             </LinearLayout>
         </TabHost>
     </LinearLayout>
