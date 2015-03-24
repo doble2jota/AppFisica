@@ -24,7 +24,7 @@ public class CircuitosActivity extends ActionBarActivity {
 
     //DECLARAMOS LA VARIABLES DE LOS EDIT TEXT
 
-    private EditText rS,lS,cS,vS,rP,lP,cP,vP,rC,lC,cC,vC;
+    private EditText rS,lS,cS,vS,rP,lP,cP,vP,rC,lC,cC,vC,rC_1,rC_2;
 
 
     @Override
@@ -91,10 +91,15 @@ public class CircuitosActivity extends ActionBarActivity {
         spinner9.setAdapter(adapter9);
 
 
-        final Spinner spinner10 = (Spinner) findViewById(R.id.spinner10);
-        String []opciones10={"Ω","mΩ","µΩ","nΩ"};
-        ArrayAdapter<String> adapter10 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones10);
-        spinner10.setAdapter(adapter10);
+        final Spinner spinner10_1 = (Spinner) findViewById(R.id.spinner10_1);
+        String []opciones10_1={"Ω","mΩ","µΩ","nΩ"};
+        ArrayAdapter<String> adapter10_1 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones10_1);
+        spinner10_1.setAdapter(adapter10_1);
+
+        final Spinner spinner10_2 = (Spinner) findViewById(R.id.spinner10_2);
+        String []opciones10_2={"Ω","mΩ","µΩ","nΩ"};
+        ArrayAdapter<String> adapter10_2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, opciones10_2);
+        spinner10_2.setAdapter(adapter10_2);
 
         final Spinner spinner11 = (Spinner) findViewById(R.id.spinner11);
         String []opciones11={"H","mH","µH","nH"};
@@ -152,7 +157,8 @@ public class CircuitosActivity extends ActionBarActivity {
         vP=(EditText)findViewById(R.id.vP);
 
         //COMBINADO
-        rC=(EditText)findViewById(R.id.rC);
+        rC_1=(EditText)findViewById(R.id.rC_1);
+        rC_2=(EditText)findViewById(R.id.rC_2);
         lC=(EditText)findViewById(R.id.lC);
         cC=(EditText)findViewById(R.id.cC);
         vC=(EditText)findViewById(R.id.vC);
@@ -247,7 +253,7 @@ public class CircuitosActivity extends ActionBarActivity {
         botonC.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if (((vC.getText().toString()).equals("")) || ((rC.getText().toString()).equals("")) || ((cC.getText().toString()).equals("")) || ((lC.getText().toString()).equals(""))) {
+                if (((vC.getText().toString()).equals("")) || ((rC_1.getText().toString()).equals("")) || ((rC_2.getText().toString()).equals("")) || ((cC.getText().toString()).equals("")) || ((lC.getText().toString()).equals(""))) {
 
                     Toast.makeText(getApplicationContext(), "Rellene todos los campos por favor",
                             Toast.LENGTH_SHORT).show();
@@ -257,26 +263,31 @@ public class CircuitosActivity extends ActionBarActivity {
 
                     Intent i3 = new Intent(CircuitosActivity.this, CalculosActivity.class);
 
-                    Editable C = rC.getText();
+                    Editable C_1 = rC_1.getText();
+                    Editable C_2 = rC_2.getText();
 
                     Log.e("SPINER10", spinner9.getSelectedItem().toString());
 
-                    i3.putExtra("rCi", rC.getText().toString());
+                    i3.putExtra("rCi_1", rC_1.getText().toString());
+                    i3.putExtra("rCi_2", rC_2.getText().toString());
                     i3.putExtra("vCi", vC.getText().toString());
                     i3.putExtra("cCi", cC.getText().toString());
                     i3.putExtra("lCi", lC.getText().toString());
                     i3.putExtra("comb", "COMBINADO");
 
-                    //spinner10
+                    //spinner9
                     i3.putExtra("sp9", spinner9.getSelectedItem().toString());
 
-                    //spinner11
-                    i3.putExtra("sp10", spinner10.getSelectedItem().toString());
+                    //spinner10_1
+                    i3.putExtra("sp10_1", spinner10_1.getSelectedItem().toString());
 
-                    //spinner12
+                    //spinner10_2
+                    i3.putExtra("sp10_2", spinner10_2.getSelectedItem().toString());
+
+                    //spinner11
                     i3.putExtra("sp11", spinner11.getSelectedItem().toString());
 
-                    //spinner13
+                    //spinner12
                     i3.putExtra("sp12", spinner12.getSelectedItem().toString());
 
 

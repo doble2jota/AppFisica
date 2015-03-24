@@ -15,11 +15,15 @@ public class CalculosActivity extends ActionBarActivity {
     private TextView impT;
     private TextView corrT;
     private TextView tenR;
+    private TextView tenR_1;
+    private TextView tenR_2;
     private TextView tenC;
     private TextView tenL;
 
 
     private double rS;
+    private double rS_1;
+    private double rS_2;
     private double lS;
     private double cS;
     private double vS;
@@ -28,6 +32,8 @@ public class CalculosActivity extends ActionBarActivity {
     private double cP;
     private double vP;
     private double rC;
+    private double rC_1;
+    private double rC_2;
     private double lC;
     private double cC;
     private double vC;
@@ -55,6 +61,8 @@ public class CalculosActivity extends ActionBarActivity {
     String sp8;
     String sp9;
     String sp10;
+    String sp10_1;
+    String sp10_2;
     String sp11;
     String sp12;
 
@@ -63,13 +71,14 @@ public class CalculosActivity extends ActionBarActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculos2);
+
 
 
 
         //try para comparar , puesto que si hay nulls los if no funcionan
 
         try{
+            setContentView(R.layout.activity_calculos_sp);
             //dentro de este if van las operaciones relativas al circuito serie
             if((this.getIntent().getStringExtra("serie").equals("SERIE"))) {
 
@@ -156,6 +165,8 @@ public class CalculosActivity extends ActionBarActivity {
             }}catch (NullPointerException e){
             // try para el circuito paralelo
             try {if((this.getIntent().getStringExtra("paralelo").equals("PARALELO"))) {
+                setContentView(R.layout.activity_calculos_sp);
+
                 rP = Float.parseFloat(this.getIntent().getStringExtra("rPi"));
                 lP = Float.parseFloat(this.getIntent().getStringExtra("lPi"));
                 cP = Float.parseFloat(this.getIntent().getStringExtra("cPi"));
@@ -186,12 +197,15 @@ public class CalculosActivity extends ActionBarActivity {
 
                 // try para el circuito combinado
                 try {if((this.getIntent().getStringExtra("comb").equals("COMBINADO"))) {
-                    rC = Float.parseFloat(this.getIntent().getStringExtra("rCi"));
+                    setContentView(R.layout.activity_calculos_c);
+                    rC_1 = Float.parseFloat(this.getIntent().getStringExtra("rCi_1"));
+                    rC_2 = Float.parseFloat(this.getIntent().getStringExtra("rCi_2"));
                     lC = Float.parseFloat(this.getIntent().getStringExtra("lCi"));
                     cC = Float.parseFloat(this.getIntent().getStringExtra("cCi"));
                     vC = Float.parseFloat(this.getIntent().getStringExtra("vCi"));
                     sp9 = this.getIntent().getStringExtra("sp9");
-                    sp10 = this.getIntent().getStringExtra("sp10");
+                    sp10_1 = this.getIntent().getStringExtra("sp10_1");
+                    sp10_2 = this.getIntent().getStringExtra("sp10_2");
                     sp11 = this.getIntent().getStringExtra("sp11");
                     sp12 = this.getIntent().getStringExtra("sp12");
                     Log.e("dentro try3"," "+rC);
@@ -206,10 +220,14 @@ public class CalculosActivity extends ActionBarActivity {
                     if(sp11.equals("µH")){ lS=lS*0.000001; }
                     if(sp11.equals("nH")){ lS=lS*0.000000001;}
                     if(sp11.equals("mH")){ lS=lS*0.001;}
-                    //REsistencia
-                    if(sp10.equals("µΩ")){ rS=rS*0.000001;}
-                    if(sp10.equals("nΩ")){rS=rS*0.000000001;}
-                    if(sp10.equals("mΩ")){ rS=rS*0.001;}
+                    //Resistencia R1
+                    if(sp10_1.equals("µΩ")){ rS_1=rS_1*0.000001;}
+                    if(sp10_1.equals("nΩ")){rS_1=rS_1*0.000000001;}
+                    if(sp10_1.equals("mΩ")){ rS_1=rS_1*0.001;}
+                    //Resistencia R2
+                    if(sp10_2.equals("µΩ")){ rS_2=rS_2*0.000001;}
+                    if(sp10_2.equals("nΩ")){rS_2=rS_2*0.000000001;}
+                    if(sp10_2.equals("mΩ")){ rS_2=rS_2*0.001;}
                 }}catch (NullPointerException e2){
 
                 }

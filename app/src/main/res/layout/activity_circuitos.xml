@@ -322,7 +322,7 @@
                             android:id="@+id/circuito2"
                             android:layout_gravity="center"
                             android:paddingTop="7dp"
-                            android:src="@drawable/circuito2" />
+                            android:src="@drawable/circuito3" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -359,11 +359,11 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="R: "
+                                android:text="R1:"
                                 android:id="@+id/textView6" />
 
                             <EditText
-                                android:id="@+id/rC"
+                                android:id="@+id/rC_1"
                                 android:text="150"
                                 android:layout_width="103dp"
                                 android:layout_height="wrap_content"
@@ -375,7 +375,35 @@
                             <Spinner
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/spinner10"
+                                android:id="@+id/spinner10_1"
+                                android:layout_weight="1" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="R2:"
+                                android:id="@+id/textView6" />
+
+                            <EditText
+                                android:id="@+id/rC_2"
+                                android:text="150"
+                                android:layout_width="103dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:inputType="numberDecimal"
+                                />
+                            <Spinner
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/spinner10_2"
                                 android:layout_weight="1" />
 
 
