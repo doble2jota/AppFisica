@@ -7,11 +7,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 
 public class CalculosActivity extends ActionBarActivity {
 
     private TextView impT;
-
+    private TextView corrT;
+    private TextView tenR;
+    private TextView tenC;
+    private TextView tenL;
 
 
     private double rS;
@@ -30,6 +35,14 @@ public class CalculosActivity extends ActionBarActivity {
     double xL; //reactancia inductiva
     double xC; //reactancia capacitiva
     double x;  //xtriagulo
+    double iTotalserie; // intensidad total del circuito
+    double angulointensidad; //angulo de intensidad
+    double anguloTensionCS;
+    double anguloTensionLS;
+    double tensionRS;
+    double tensionCS;
+    double tensionLS;
+
     double zT;  //impedancia total
     float angulo;
     String sp1;
@@ -59,6 +72,15 @@ public class CalculosActivity extends ActionBarActivity {
         try{
             //dentro de este if van las operaciones relativas al circuito serie
             if((this.getIntent().getStringExtra("serie").equals("SERIE"))) {
+
+                DecimalFormat df= new DecimalFormat("0.000");
+
+                corrT=(TextView)findViewById(R.id.corrienteTotal);
+                impT=(TextView)findViewById(R.id.impedanciat);
+                tenR=(TextView)findViewById(R.id.tensionR);
+                tenC=(TextView)findViewById(R.id.tensionC);
+                tenL=(TextView)findViewById(R.id.tensionL);
+
 
                 //recogemos valores del intent que tenemos q convertir a float
                 rS = Float.parseFloat(this.getIntent().getStringExtra("rSi"));
@@ -105,8 +127,30 @@ public class CalculosActivity extends ActionBarActivity {
 
                 Log.e("2222","angulo "+angulo);
                 //añadimos al textview
-                impT=(TextView)findViewById(R.id.impedanciat);
-                impT.setText(zT+" "+angulo+"º");
+
+                impT.setText(" " + df.format(zT)+" "+df.format(angulo)+"º");
+
+
+                //Calculamos la intensidad que circula por el circuito
+                iTotalserie=(vS/zT);
+                angulointensidad=0-angulo;
+                //añadimos corriente
+
+                corrT.setText(df.format(iTotalserie)+" "+df.format(angulointensidad)+"º");
+
+                //calculamos las tensiones
+                tensionRS = (rS * iTotalserie);
+                tensionCS = (xC*iTotalserie);
+                anguloTensionCS = (-90+(-angulo));
+                tensionLS =(xL * iTotalserie);
+                anguloTensionLS=(90+(-angulo));
+
+                tenR.setText(" " + df.format(tensionRS) + " "+ df.format(-angulo)+"º");
+                tenC.setText(" " + df.format(tensionCS) + " "+ df.format(anguloTensionCS)+"º");
+                tenL.setText(" " + df.format(tensionLS) + " "+ df.format(anguloTensionLS)+"º");
+
+
+
 
                 //captura de excepción
             }}catch (NullPointerException e){
