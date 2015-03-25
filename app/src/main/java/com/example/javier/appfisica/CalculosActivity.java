@@ -22,8 +22,6 @@ public class CalculosActivity extends ActionBarActivity {
 
 
     private double rS;
-    private double rS_1;
-    private double rS_2;
     private double lS;
     private double cS;
     private double vS;
@@ -50,7 +48,11 @@ public class CalculosActivity extends ActionBarActivity {
     double tensionLS;
 
     double zT;  //impedancia total
+    double zAB; //Impedancia combinada en el paralelo
+    private double realAB, imaginarioAB, realTotal, imaginarioTotal; //Combinado
+
     float angulo;
+    float anguloAB;
     String sp1;
     String sp2;
     String sp3;
@@ -66,7 +68,7 @@ public class CalculosActivity extends ActionBarActivity {
     String sp11;
     String sp12;
 
-    final float w= 2 * (float) Math.PI* hz;
+    final float w = 2 * (float) Math.PI* hz;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,7 +199,18 @@ public class CalculosActivity extends ActionBarActivity {
 
                 // try para el circuito combinado
                 try {if((this.getIntent().getStringExtra("comb").equals("COMBINADO"))) {
+
                     setContentView(R.layout.activity_calculos_c1);
+
+
+                    DecimalFormat df= new DecimalFormat("0.000");
+
+                    impT=(TextView)findViewById(R.id.impedanciat);
+                    corrT=(TextView)findViewById(R.id.corrienteTotal);
+                    tenR=(TextView)findViewById(R.id.tensionR);
+                    tenC=(TextView)findViewById(R.id.tensionC);
+                    tenL=(TextView)findViewById(R.id.tensionL);
+
                     rC_1 = Float.parseFloat(this.getIntent().getStringExtra("rCi_1"));
                     rC_2 = Float.parseFloat(this.getIntent().getStringExtra("rCi_2"));
                     lC = Float.parseFloat(this.getIntent().getStringExtra("lCi"));
@@ -209,25 +222,128 @@ public class CalculosActivity extends ActionBarActivity {
                     sp11 = this.getIntent().getStringExtra("sp11");
                     sp12 = this.getIntent().getStringExtra("sp12");
                     Log.e("dentro try3"," "+rC);
-                    if(sp9.equals("µV")){ vS=vS*0.000001;}
-                    if(sp9.equals("nV")){ vS=vS*0.000000001;}
-                    if(sp9.equals("mV")){ vS=vS*0.001;}
+                    if(sp9.equals("µV")){ vC=vC*0.000001;}
+                    if(sp9.equals("nV")){ vC=vC*0.000000001;}
+                    if(sp9.equals("mV")){ vC=vC*0.001;}
                     //capacidad
-                    if(sp12.equals("µF")){ cS=cS*0.000001;}
-                    if(sp12.equals("nF")){ cS=cS*0.000000001;}
-                    if(sp12.equals("mF")){ cS=cS*0.001;}
+                    if(sp12.equals("µF")){ cC=cC*0.000001;}
+                    if(sp12.equals("nF")){ cC=cC*0.000000001;}
+                    if(sp12.equals("mF")){ cC=cC*0.001;}
                     //inductancia
-                    if(sp11.equals("µH")){ lS=lS*0.000001; }
-                    if(sp11.equals("nH")){ lS=lS*0.000000001;}
-                    if(sp11.equals("mH")){ lS=lS*0.001;}
+                    if(sp11.equals("µH")){ lC=lC*0.000001; }
+                    if(sp11.equals("nH")){ lC=lC*0.000000001;}
+                    if(sp11.equals("mH")){ lC=lC*0.001;}
                     //Resistencia R1
-                    if(sp10_1.equals("µΩ")){ rS_1=rS_1*0.000001;}
-                    if(sp10_1.equals("nΩ")){rS_1=rS_1*0.000000001;}
-                    if(sp10_1.equals("mΩ")){ rS_1=rS_1*0.001;}
+                    if(sp10_1.equals("µΩ")){ rC_1=rC_1*0.000001;}
+                    if(sp10_1.equals("nΩ")){rC_1=rC_1*0.000000001;}
+                    if(sp10_1.equals("mΩ")){ rC_1=rC_1*0.001;}
                     //Resistencia R2
-                    if(sp10_2.equals("µΩ")){ rS_2=rS_2*0.000001;}
-                    if(sp10_2.equals("nΩ")){rS_2=rS_2*0.000000001;}
-                    if(sp10_2.equals("mΩ")){ rS_2=rS_2*0.001;}
+                    if(sp10_2.equals("µΩ")){ rC_2=rC_2*0.000001;}
+                    if(sp10_2.equals("nΩ")){rC_2=rC_2*0.000000001;}
+                    if(sp10_2.equals("mΩ")){ rC_2=rC_2*0.001;}
+
+                    //Calculos
+
+                    //Inductancia
+                    xL=w*lC;
+
+                    //Reactancia
+                    xC=(1/(w*cC));
+
+                    Log.e("XC"," "+rC_2);
+
+
+                    //Impedancia en el paralelo
+
+                    zAB = xC*rC_2/((float)Math.sqrt((float)Math.pow(xC, 2)+(float)Math.pow(rC_2, 2)));
+
+                    anguloAB=  (float) Math.atan(-xC/rC_2);
+                    anguloAB= (float) Math.toDegrees(anguloAB);
+                    anguloAB=   -90 - anguloAB;
+
+
+                    //Impedancia en R2 y C
+                    impT.setText(" " + df.format(zAB)+" "+df.format(anguloAB)+"º");
+
+                    //Impedancia total
+
+                    Log.e("angulo"," "+anguloAB);
+                    realAB=zAB * (float) Math.cos(Math.toRadians(anguloAB));
+
+                    Log.e("realab"," "+ realAB);
+                    imaginarioAB=zAB * (float) Math.sin(Math.toRadians(anguloAB));
+                    Log.e("realab"," "+imaginarioAB);
+
+                    realTotal = realAB + rC_1;
+
+                    Log.e("total"," "+realTotal);
+                    imaginarioTotal = xL + imaginarioAB;
+                    Log.e("xl"," "+xL);
+                    Log.e("total"," "+imaginarioTotal);
+
+                    zT = (float)Math.sqrt((float)Math.pow(realTotal, 2)+(float)Math.pow(imaginarioTotal, 2));
+                    angulo = (float) Math.atan(imaginarioTotal/realTotal);
+                    angulo= (float) Math.toDegrees(angulo);
+
+
+                    //añadimos al textview
+
+                    //Impedancia total
+                    impT.setText(" " + df.format(zT)+" "+df.format(angulo)+"º");
+
+                    //Intensidad que pasa por L y R1
+
+                    double iLR, anguloLR;
+                    iLR = vC / zT;
+                    anguloLR = 0 - angulo;
+
+                    //añadimos al textview
+
+                    //intensidad en R1 y L
+                    corrT.setText(df.format(iLR)+" "+df.format(anguloLR)+"º");
+
+                    //Tension en R1 y L
+                    double tensionR1, tensionL, angulotR1, angulotL;
+                    tensionR1 = iLR * rC_1;
+                    tensionL = iLR * xL;
+                    angulotR1 = 0 + anguloLR;
+                    angulotL = 90 + anguloLR;
+                    //corrT.setText(df.format(tensionR1)+" "+df.format(angulotR1)+"º");
+                    //corrT.setText(df.format(tensionL)+" "+df.format(angulotL)+"º");
+
+                    //Intensidad que pasa por R2
+                    double iR2, anguloR2;
+
+                    iR2= iLR * zAB / rC_2;
+                    anguloR2 = (anguloLR + anguloAB) - (0);
+
+                    //Intensidad en R2
+                    //corrT.setText(df.format(iR2)+" "+df.format(anguloR2)+"º");
+
+                    //Tension en R2
+
+                    double tensionR2, angulotR2;
+                    tensionR2 = iR2 * rC_2;
+                    angulotR2 = 0 + anguloR2;
+                    //corrT.setText(df.format(tensionR2)+" "+df.format(angulotR2)+"º");
+
+
+                    //Intensidad que pasa por C
+
+                    double iC, anguloC;
+
+                    iC= iLR * zAB / xC;
+                    anguloC = (anguloLR + anguloAB) - (-90);
+
+                    //Intensidad en C
+                    //corrT.setText(df.format(iC)+" "+df.format(anguloC)+"º");
+
+                    //Tension en C
+                    double tensionC, angulotC;
+                    tensionC = iC * xC;
+                    angulotR2 = -90 + anguloC;
+                    //corrT.setText(df.format(tensionC)+" "+df.format(angulotC)+"º");
+
                 }}catch (NullPointerException e2){
 
                 }
