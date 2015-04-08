@@ -45,7 +45,9 @@
     <string name="dismiss_error">Dismiss</string>
     <string name="oops">Oops</string>
     <string name="title_activity_calculos">Calculos</string>
-
+    <string name="acerca">Acerca de</string>
+    <string name="mensajeAcerca"><b>Bienvenido a ACresolve</b>.\n\nEsta aplicación ha sido desarrollada por alumnos de la Escuela Técnica Superior de Ingeniería Informática de la Universidad de Valladolid (www.inf.uva.es).\n\n© 2014 Copyright\n® Todos los derechos reservados.\n\nAUTORES\n<b>Fernández Hebrero, Jesus Javier\nRodríguez Álvarez, Daniel</b></string>
+    <string name="aceptar">Aceptar</string>
 
 
 

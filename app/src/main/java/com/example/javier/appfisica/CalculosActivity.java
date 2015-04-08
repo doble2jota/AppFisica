@@ -1,5 +1,7 @@
 package com.example.javier.appfisica;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -320,7 +322,7 @@ public class CalculosActivity extends ActionBarActivity {
 
 
                     //Impedancia en R2 y C
-                    impT.setText(" " + df.format(zAB)+" "+df.format(anguloAB)+"º");
+                    //impT.setText(" " + df.format(zAB)+" "+df.format(anguloAB)+"º");
 
                     //Impedancia total
 
@@ -478,10 +480,31 @@ public class CalculosActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.btInfo) {
+            acerca();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Función para mostrar la opción ACERCA DE de la aplicación.
+     */
+    public void acerca() {
+        AlertDialog.Builder dialogoAcerca = new AlertDialog.Builder(this);
+
+        dialogoAcerca.setTitle(R.string.acerca);
+        dialogoAcerca.setMessage(R.string.mensajeAcerca);
+        dialogoAcerca.setCancelable(false);
+        dialogoAcerca.setNegativeButton(R.string.aceptar, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        dialogoAcerca.show();
+    } //Fin acerca()
 }
