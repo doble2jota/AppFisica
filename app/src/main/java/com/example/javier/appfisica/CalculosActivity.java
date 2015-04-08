@@ -51,6 +51,8 @@ public class CalculosActivity extends ActionBarActivity {
     double zAB; //Impedancia combinada en el paralelo
     private double realAB, imaginarioAB, realTotal, imaginarioTotal; //Combinado
 
+    private double xLp,xCp,iRp,iLp,iCp,angR,angL,angC,intensidadTotalx,intensidadTotaly,intensidadModulo,anguloFi; // reactncia inductiva del L del paralelo
+
     float angulo;
     float anguloAB;
     String sp1;
@@ -168,7 +170,17 @@ public class CalculosActivity extends ActionBarActivity {
             }}catch (NullPointerException e){
             // try para el circuito paralelo
             try {if((this.getIntent().getStringExtra("paralelo").equals("PARALELO"))) {
-                setContentView(R.layout.activity_calculos_sp1);
+                setContentView(R.layout.activity_calculos_sp2);
+
+                DecimalFormat df= new DecimalFormat("0.000");
+
+                TextView intR=(TextView)findViewById(R.id.intensidadR);
+                TextView intC=(TextView)findViewById(R.id.intensidadC);
+                TextView intL=(TextView)findViewById(R.id.intensidadL);
+                TextView intT=(TextView)findViewById(R.id.intensidadTotal);
+                TextView comportamiento=(TextView)findViewById(R.id.comportamiento);
+                TextView intensidadMod=(TextView)findViewById(R.id.intensidadMod);
+
 
                 rP = Float.parseFloat(this.getIntent().getStringExtra("rPi"));
                 lP = Float.parseFloat(this.getIntent().getStringExtra("lPi"));
@@ -179,21 +191,64 @@ public class CalculosActivity extends ActionBarActivity {
                 sp7 = this.getIntent().getStringExtra("sp7");
                 sp8 = this.getIntent().getStringExtra("sp8");
                 Log.e("dentro try2"," "+rP);
-                if(sp5.equals("µV")){ vS=vS*0.000001;}
-                if(sp5.equals("nV")){ vS=vS*0.000000001;}
-                if(sp5.equals("mV")){ vS=vS*0.001;}
+
+
+                if(sp5.equals("µV")){ vP=vP*0.000001;}
+                if(sp5.equals("nV")){ vP=vP*0.000000001;}
+                if(sp5.equals("mV")){ vP=vP*0.001;}
                 //capacidad
-                if(sp8.equals("µF")){ cS=cS*0.000001;}
-                if(sp8.equals("nF")){ cS=cS*0.000000001;}
-                if(sp8.equals("mF")){ cS=cS*0.001;}
+                if(sp8.equals("µF")){ cP=cP*0.000001;}
+                if(sp8.equals("nF")){ cP=cP*0.000000001;}
+                if(sp8.equals("mF")){ cP=cP*0.001;}
                 //inductancia
-                if(sp7.equals("µH")){ lS=lS*0.000001; }
-                if(sp7.equals("nH")){ lS=lS*0.000000001;}
-                if(sp7.equals("mH")){ lS=lS*0.001;}
+                if(sp7.equals("µH")){ lP=lP*0.000001; }
+                if(sp7.equals("nH")){ lP=lP*0.000000001;}
+                if(sp7.equals("mH")){ lP=lP*0.001;}
                 //REsistencia
                 if(sp6.equals("µΩ")){ rS=rS*0.000001;}
                 if(sp6.equals("nΩ")){rS=rS*0.000000001;}
                 if(sp6.equals("mΩ")){ rS=rS*0.001;}
+
+
+                //calculos
+
+                xLp=2 * (float) Math.PI* 50* lP; // angulo 90º
+                Log.e("lp","Lp "+lP);
+                Log.e("Xlp","xLp "+xLp);
+                xCp=1/(2*(float) Math.PI* 50* cP); //angulo -90º
+                Log.e("Xcp","xCp "+xCp);
+                //intensidades parciales
+
+                iRp=(vP/rP);
+                angR= 0;
+                intR.setText(" " + df.format(iRp) + " "+ df.format(angR)+"º");
+
+
+                iLp=(vP/xLp);
+                angL= -90;
+                intL.setText(" " + df.format(iLp) + " "+ df.format(angL)+"º");
+
+
+                iCp=(vP/xCp);
+                angC= 90;
+                intC.setText(" " + df.format(iCp) + " "+ df.format(angC)+"º");
+
+                //intensidad totales
+
+                intensidadTotalx=iRp;
+                intensidadTotaly=-iLp+iCp;
+                intT.setText(" " + df.format(intensidadTotalx) + " "+ df.format(intensidadTotaly)+" j");
+
+                if(iLp>iCp){comportamiento.setText("Inductivo");}else{comportamiento.setText("Capacitivo");}
+
+                //intensidad modulo
+                intensidadModulo=Math.sqrt(Math.pow(intensidadTotalx,2)+Math.pow(intensidadTotaly,2));
+                anguloFi=(float) Math.atan(intensidadTotaly/intensidadTotalx);
+
+                anguloFi= (float) Math.toDegrees(anguloFi);
+
+                intensidadMod.setText(" " + df.format(intensidadModulo) + " "+ df.format(anguloFi)+ "º" );
+
 
 
             }}catch (NullPointerException e1){
