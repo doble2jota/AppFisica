@@ -89,6 +89,7 @@ public class CalculosActivity extends ActionBarActivity {
                 corrT=(TextView)findViewById(R.id.corrienteTotal);
                 impT=(TextView)findViewById(R.id.impedanciat);
                 tenR=(TextView)findViewById(R.id.tensionR);
+
                 tenC=(TextView)findViewById(R.id.tensionC);
                 tenL=(TextView)findViewById(R.id.tensionL);
 
@@ -207,7 +208,8 @@ public class CalculosActivity extends ActionBarActivity {
 
                     impT=(TextView)findViewById(R.id.impedanciat);
                     corrT=(TextView)findViewById(R.id.corrienteTotal);
-                    tenR=(TextView)findViewById(R.id.tensionR);
+                    tenR_1=(TextView)findViewById(R.id.tensionR1);
+                    tenR_2=(TextView)findViewById(R.id.tensionR2);
                     tenC=(TextView)findViewById(R.id.tensionC);
                     tenL=(TextView)findViewById(R.id.tensionL);
 
@@ -308,8 +310,8 @@ public class CalculosActivity extends ActionBarActivity {
                     tensionL = iLR * xL;
                     angulotR1 = 0 + anguloLR;
                     angulotL = 90 + anguloLR;
-                    //corrT.setText(df.format(tensionR1)+" "+df.format(angulotR1)+"º");
-                    //corrT.setText(df.format(tensionL)+" "+df.format(angulotL)+"º");
+                    tenR_1.setText(df.format(tensionR1)+" "+df.format(angulotR1)+"º");
+                    tenL.setText(df.format(tensionL)+" "+df.format(angulotL)+"º");
 
                     //Intensidad que pasa por R2
                     double iR2, anguloR2;
@@ -325,7 +327,7 @@ public class CalculosActivity extends ActionBarActivity {
                     double tensionR2, angulotR2;
                     tensionR2 = iR2 * rC_2;
                     angulotR2 = 0 + anguloR2;
-                    //corrT.setText(df.format(tensionR2)+" "+df.format(angulotR2)+"º");
+                    tenR_2.setText(df.format(tensionR2)+" "+df.format(angulotR2)+"º");
 
 
                     //Intensidad que pasa por C
@@ -342,7 +344,9 @@ public class CalculosActivity extends ActionBarActivity {
                     double tensionC, angulotC;
                     tensionC = iC * xC;
                     angulotR2 = -90 + anguloC;
-                    //corrT.setText(df.format(tensionC)+" "+df.format(angulotC)+"º");
+
+                    //¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ES ESTE ANGULO????????????????????????????
+                    tenC.setText(df.format(tensionC)+" "+df.format(angulotR2)+"º");
 
                 }}catch (NullPointerException e2){
 

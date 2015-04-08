@@ -49,14 +49,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:layout_below="@+id/contenedor"
-        android:layout_alignRight="@+id/contenedor"
-        android:layout_alignEnd="@+id/contenedor">
+        android:layout_below="@+id/contenedor">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/corrienteTotal" />
+            android:text="Corriente del circuito:"
+            android:id="@+id/textView7"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -70,7 +73,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tension en R:"
+            android:text="Tension en R1:"
             android:id="@+id/textView8"
             android:textColor="#669900"
             android:layout_below="@+id/contenedor"
@@ -80,14 +83,46 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tensionR" />
+            android:id="@+id/tensionR1" />
     </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tension en R2:"
+            android:id="@+id/textView111"
+            android:textColor="#669900"
+            android:layout_below="@+id/contenedor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tensionR2" />
+    </LinearLayout>
+
+
+
+
     <LinearLayout
         android:id="@+id/contenedor1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:layout_below="@+id/linearLayout4"
+        android:layout_below="@+id/linearLayout41"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -131,16 +166,13 @@
             android:id="@+id/tensionL" />
     </LinearLayout>
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Corriente del circuito:"
-        android:id="@+id/textView7"
-        android:textColor="#669900"
+        android:id="@+id/corrienteTotal"
         android:layout_alignBottom="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toRightOf="@+id/linearLayout"
+        android:layout_toEndOf="@+id/linearLayout" />
 
 
 </RelativeLayout>
