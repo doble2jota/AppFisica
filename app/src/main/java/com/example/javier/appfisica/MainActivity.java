@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
 
-    private final int DURACION_SPLASH = 3000;
+    private final int DURACION_SPLASH = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

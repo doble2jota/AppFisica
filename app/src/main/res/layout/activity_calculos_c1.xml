@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Impedancia Total:"
+            android:text="|Zt|: "
             android:id="@+id/textView6"
             android:textColor="#669900"
             android:layout_below="@+id/textView3"
@@ -44,29 +44,150 @@
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/contenedorit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_above="@+id/contenedorMit"
+        android:layout_toRightOf="@+id/contenedor"
+        android:layout_toEndOf="@+id/contenedor">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="α: "
+            android:id="@+id/textViewt6"
+            android:textColor="#669900"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/alfatt"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/contenedorMit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/contenedor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Z: "
+            android:id="@+id/textV2iewt6"
+            android:textColor="#669900"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/moduloZt"
+            />
+
+    </LinearLayout>
+
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:layout_below="@+id/contenedor">
+        android:layout_below="@+id/contenedorMit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Corriente del circuito:"
+            android:text="|ILR1|: "
             android:id="@+id/textView7"
             android:textColor="#669900"
             android:layout_alignBottom="@+id/linearLayout"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/corrienteTotal"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayewout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_above="@+id/linearLayewoutw"
+        android:layout_toRightOf="@+id/contenedorit"
+        android:layout_toEndOf="@+id/contenedorit">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="α: "
+            android:id="@+id/textViewalf"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/alfailr1"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayewoutw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ILR1: "
+            android:id="@+id/textViewalfw"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Ilr1"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
+    </LinearLayout>
+
+
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:layout_below="@+id/linearLayout"
+        android:layout_below="@+id/linearLayout11"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -94,9 +215,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentLeft="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -122,9 +243,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout41"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentLeft="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -146,9 +267,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/contenedor1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentLeft="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -166,13 +287,198 @@
             android:id="@+id/tensionL" />
     </LinearLayout>
 
-    <TextView
+
+    <LinearLayout
+        android:id="@+id/contenedor3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/corrienteTotal"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_toRightOf="@+id/linearLayout"
-        android:layout_toEndOf="@+id/linearLayout" />
+        android:paddingTop="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/contenedor2"
+        android:layout_alignParentLeft="true">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Potencia disipada:"
+            android:id="@+id/potenciadis"
+            android:textColor="#669900"
+            android:layout_below="@+id/contenedor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/potenciadisipadaC" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/linearLayewoutw"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|IC|: "
+            android:id="@+id/test"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ICbarras"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_alignBottom="@+id/linearLayout6"
+        android:layout_toRightOf="@+id/linearLayout6"
+        android:layout_toEndOf="@+id/linearLayout6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="α: "
+            android:id="@+id/textView13"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/alfaIC"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/linearLayout6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IC: "
+            android:id="@+id/textView14"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ICmodulo"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/linearLayout8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|IR2|: "
+            android:id="@+id/textView15"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/IR2barra"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_alignTop="@+id/linearLayout9"
+        android:layout_toRightOf="@+id/linearLayout9"
+        android:layout_toEndOf="@+id/linearLayout9">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="α: "
+            android:id="@+id/textView16"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/alfaIr2"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/linearLayout9"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IR2: "
+            android:id="@+id/textView17"
+            android:textColor="#669900"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/IR2modulo"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_toEndOf="@+id/linearLayout" />
+    </LinearLayout>
 
 </RelativeLayout>

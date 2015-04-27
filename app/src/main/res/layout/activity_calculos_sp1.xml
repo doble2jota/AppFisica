@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Impedancia Total:"
+            android:text="|Z|:"
             android:id="@+id/textView6"
             android:textColor="#669900"
             android:layout_below="@+id/textView3"
@@ -45,27 +45,107 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/contenedor222"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_alignTop="@+id/contenedor"
+        android:layout_toRightOf="@+id/contenedor"
+        android:layout_toEndOf="@+id/contenedor">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="α: "
+            android:id="@+id/alfa1"
+            android:textColor="#669900"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/alfa"
+    />
+
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/contenedo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:layout_below="@+id/contenedor"
-        android:layout_alignRight="@+id/contenedor"
-        android:layout_alignEnd="@+id/contenedor">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Z:"
+            android:id="@+id/textView2"
+            android:textColor="#669900"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zmodulo"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/contenedo2"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/corrienteTotal" />
     </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout4w"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/textView7">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I: "
+            android:id="@+id/textViewq"
+            android:textColor="#669900"
+            android:layout_below="@+id/contenedor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Imodulo" />
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_below="@+id/linearLayout4w">
 
         <TextView
             android:layout_width="wrap_content"
@@ -136,12 +216,60 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Corriente del circuito:"
+        android:text="|I|: "
         android:id="@+id/textView7"
         android:textColor="#669900"
-        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_below="@+id/contenedo2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp" />
 
+    <LinearLayout
+        android:id="@+id/contenedor3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/contenedor2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Potencia Disipada: "
+            android:id="@+id/textView12"
+            android:textColor="#669900"
+            android:layout_below="@+id/contenedor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/potenciadisipadaS" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/contenedor22222"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_toRightOf="@+id/linearLayout"
+        android:layout_toEndOf="@+id/linearLayout">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="α: "
+        android:id="@+id/alfa2"
+        android:textColor="#669900"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_toRightOf="@+id/linearLayout"
+        android:layout_toEndOf="@+id/linearLayout" />
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/alfaI2"
+            />
+    </LinearLayout>
 </RelativeLayout>
