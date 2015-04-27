@@ -21,6 +21,9 @@ public class CalculosActivity extends ActionBarActivity {
     private TextView tenR_2;
     private TextView tenC;
     private TextView tenL;
+    private TextView potdisipada;
+
+
 
 
     private double rS;
@@ -57,6 +60,8 @@ public class CalculosActivity extends ActionBarActivity {
 
     float angulo;
     float anguloAB;
+    float pot, pot1,pot2;
+
     String sp1;
     String sp2;
     String sp3;
@@ -125,6 +130,8 @@ public class CalculosActivity extends ActionBarActivity {
                 if(sp2.equals("nΩ")){rS=rS*0.000000001;}
                 if(sp2.equals("mΩ")){ rS=rS*0.001;}
 
+                TextView alfa=(TextView)findViewById(R.id.alfa);
+
                 //calculamos reactancia induztiva
                 xL=w*lS;
 
@@ -144,15 +151,24 @@ public class CalculosActivity extends ActionBarActivity {
                 Log.e("2222","angulo "+angulo);
                 //añadimos al textview
 
-                impT.setText(" " + df.format(zT)+" "+df.format(angulo)+"º");
+                TextView moduloz= (TextView)findViewById(R.id.zmodulo);
 
+                impT.setText(" " + df.format(zT)+"   ");
+                alfa.setText(" "+df.format(angulo)+"º" );
+                moduloz.setText(" "+df.format( zT*Math.cos(Math.toRadians(angulo))) +" + j "+df.format(zT*Math.sin(Math.toRadians(angulo))) );
 
                 //Calculamos la intensidad que circula por el circuito
                 iTotalserie=(vS/zT);
                 angulointensidad=0-angulo;
                 //añadimos corriente
 
-                corrT.setText(df.format(iTotalserie)+" "+df.format(angulointensidad)+"º");
+                corrT.setText(df.format(iTotalserie)+"   ");
+                TextView alfai= (TextView)findViewById(R.id.alfaI2);
+                alfai.setText(df.format(angulointensidad)+"º");
+
+                TextView moduloI= (TextView)findViewById(R.id.Imodulo);
+                moduloI.setText(" "+df.format( iTotalserie*Math.cos(Math.toRadians(angulointensidad))) +" + j "+df.format(iTotalserie*Math.sin(Math.toRadians(angulointensidad))) );
+
 
                 //calculamos las tensiones
                 tensionRS = (rS * iTotalserie);
@@ -165,6 +181,13 @@ public class CalculosActivity extends ActionBarActivity {
                 tenC.setText(" " + df.format(tensionCS) + " "+ df.format(anguloTensionCS)+"º");
                 tenL.setText(" " + df.format(tensionLS) + " "+ df.format(anguloTensionLS)+"º");
 
+                //potencias disipadas
+
+
+                pot= (float) (rS*Math.pow((iTotalserie/Math.sqrt(2)),2));
+
+                potdisipada=(TextView)findViewById(R.id.potenciadisipadaS);
+                potdisipada.setText(df.format(pot)+ " W");
 
 
 
@@ -251,6 +274,12 @@ public class CalculosActivity extends ActionBarActivity {
 
                 intensidadMod.setText(" " + df.format(intensidadModulo) + " "+ df.format(anguloFi)+ "º" );
 
+                TextView potdisipadaP;
+                potdisipadaP=(TextView)findViewById(R.id.potenciadisipadaP);
+                potdisipadaP.setText(df.format(pot)+ " W");
+
+                pot= (float) (rC*Math.pow((intensidadTotalx/Math.sqrt(2)),2));
+
 
 
             }}catch (NullPointerException e1){
@@ -264,11 +293,26 @@ public class CalculosActivity extends ActionBarActivity {
                     DecimalFormat df= new DecimalFormat("0.000");
 
                     impT=(TextView)findViewById(R.id.impedanciat);
+
                     corrT=(TextView)findViewById(R.id.corrienteTotal);
                     tenR_1=(TextView)findViewById(R.id.tensionR1);
                     tenR_2=(TextView)findViewById(R.id.tensionR2);
                     tenC=(TextView)findViewById(R.id.tensionC);
                     tenL=(TextView)findViewById(R.id.tensionL);
+                    TextView Z= (TextView)findViewById((R.id.impedanciat));
+                    TextView alfaZ= (TextView)findViewById((R.id.alfatt));
+                    TextView modulozT= (TextView)findViewById((R.id.moduloZt));
+                    TextView corrienteTotal= (TextView)findViewById((R.id.corrienteTotal));
+                    TextView alfaILR1= (TextView)findViewById((R.id.alfailr1));
+                    TextView ilr1= (TextView)findViewById((R.id.Ilr1));
+                    TextView icbarras= (TextView)findViewById((R.id.ICbarras));
+                    TextView alfaic= (TextView)findViewById((R.id.alfaIC));
+                    TextView icmodulo= (TextView)findViewById((R.id.ICmodulo));
+                    TextView ir2barra= (TextView)findViewById((R.id.IR2barra));
+                    TextView alfalr2= (TextView)findViewById((R.id.alfaIr2));
+                    TextView ir2modulo= (TextView)findViewById((R.id.IR2modulo));
+
+
 
                     rC_1 = Float.parseFloat(this.getIntent().getStringExtra("rCi_1"));
                     rC_2 = Float.parseFloat(this.getIntent().getStringExtra("rCi_2"));
@@ -322,7 +366,8 @@ public class CalculosActivity extends ActionBarActivity {
 
 
                     //Impedancia en R2 y C
-                    impT.setText(" " + df.format(zAB)+" "+df.format(anguloAB)+"º");
+                    //impT.setText(" " + df.format(zAB)+" ");
+                    //alfaZ.setText(df.format(anguloAB)+"º");
 
                     //Impedancia total
 
@@ -348,7 +393,10 @@ public class CalculosActivity extends ActionBarActivity {
                     //añadimos al textview
 
                     //Impedancia total
-                    impT.setText(" " + df.format(zT)+" "+df.format(angulo)+"º");
+                    impT.setText(" " + df.format(zT));
+                    alfaZ.setText(df.format(angulo)+"º");
+
+                    modulozT.setText(" "+df.format( zT*Math.cos(Math.toRadians(angulo))) +" + j "+df.format(zT*Math.sin(Math.toRadians(angulo))) );
 
                     //Intensidad que pasa por L y R1
 
@@ -359,7 +407,10 @@ public class CalculosActivity extends ActionBarActivity {
                     //añadimos al textview
 
                     //intensidad en R1 y L
-                    corrT.setText(df.format(iLR)+" "+df.format(anguloLR)+"º");
+                    corrienteTotal.setText(df.format(iLR)+" ");
+                    alfaILR1.setText(df.format(anguloLR)+"º");
+                    ilr1.setText(" "+df.format( zT*Math.cos(Math.toRadians(angulo))) +" + j "+df.format(zT*Math.sin(Math.toRadians(angulo))) );
+
 
                     //Tension en R1 y L
                     double tensionR1, tensionL, angulotR1, angulotL;
@@ -377,7 +428,9 @@ public class CalculosActivity extends ActionBarActivity {
                     anguloR2 = (anguloLR + anguloAB) - (0);
 
                     //Intensidad en R2
-                    //corrT.setText(df.format(iR2)+" "+df.format(anguloR2)+"º");
+                    ir2barra.setText(df.format(iR2)+" ");
+                    alfalr2.setText(df.format(anguloR2)+"º");
+                    ir2modulo.setText(" "+df.format( iR2*Math.cos(Math.toRadians(anguloR2))) +" + j "+df.format(iR2*Math.sin(Math.toRadians(anguloR2))) );
 
                     //Tension en R2
 
@@ -395,7 +448,10 @@ public class CalculosActivity extends ActionBarActivity {
                     anguloC = (anguloLR + anguloAB) - (-90);
 
                     //Intensidad en C
-                    //corrT.setText(df.format(iC)+" "+df.format(anguloC)+"º");
+                    //corrT.setText(df.format(iC)+" ");
+                    icbarras.setText(df.format(iC));
+                    alfaic.setText(df.format(anguloC)+"º");
+                    icmodulo.setText(" "+df.format( iC*Math.cos(Math.toRadians(anguloC))) +" + j "+df.format(iC*Math.sin(Math.toRadians(anguloC))) );
 
                     //Tension en C
                     double tensionC, angulotC;
@@ -404,6 +460,15 @@ public class CalculosActivity extends ActionBarActivity {
 
                     //¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ES ESTE ANGULO????????????????????????????
                     tenC.setText(df.format(tensionC)+" "+df.format(angulotR2)+"º");
+
+
+                    pot2= (float) (rC_2*Math.pow((iR2/Math.sqrt(2)),2));
+                    pot1= (float) (rC_1*Math.pow((iLR/Math.sqrt(2)),2));
+
+                    pot= pot1+pot2;
+                    TextView potdisipadaC;
+                    potdisipadaC=(TextView)findViewById(R.id.potenciadisipadaC);
+                    potdisipadaC.setText(df.format(pot)+ " W");
 
                 }}catch (NullPointerException e2){
 
@@ -464,10 +529,11 @@ public class CalculosActivity extends ActionBarActivity {
 */
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_calculos, menu);
+        getMenuInflater().inflate(R.menu.menu_circuitos, menu);
         return true;
     }
 
@@ -479,7 +545,7 @@ public class CalculosActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.btInfo) {
+        if (id ==  R.id.btInfo) {
             acerca();
             return true;
         }
