@@ -40,6 +40,15 @@ public class BotoneraMenu extends ActionBarActivity {
 
         });
 
+        Button button3 = (Button) findViewById(R.id.bacercade);
+        button3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                acerca();
+
+            }
+
+        });
+
     }
 
 

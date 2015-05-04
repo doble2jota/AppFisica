@@ -10,33 +10,9 @@
 <LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/linearLayout2">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Bienvenidos ACresolve"
-        android:id="@+id/textView3"
-        android:textColor="#669900"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp" />
-</LinearLayout>
+    android:id="@+id/linearLayout2"></LinearLayout>
+
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_above="@+id/linearLayout3">
-
-        <ImageSwitcher
-            android:id="@+id/imageSwitcher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-        </ImageSwitcher>
-
-    </LinearLayout>
-<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -46,23 +22,51 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:gravity="center"
-    android:id="@+id/linearLayout3">
+    android:id="@+id/linearLayout3"
+    android:weightSum="1">
+
+    </LinearLayout>
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="107dp"
+        android:id="@+id/bcircuitos"
+        android:drawableLeft="@drawable/bcircuitos"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/bteoria"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="260dp"
+        android:layout_height="107dp"
         android:id="@+id/bteoria"
         android:background="#FFFFFF"
         android:src="@drawable/bteoria"
         android:drawableLeft="@drawable/bteoria"
 
-        />
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bcircuitos"
-        android:drawableLeft="@drawable/bcircuitos"
-        android:background="#FFFFFF" />
-</LinearLayout>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Bienvenidos ACresolve"
+        android:id="@+id/textView3"
+        android:textColor="#669900"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp" />
+
+    <Button
+        android:layout_width="260dp"
+        android:layout_height="107dp"
+        android:id="@+id/bacercade"
+        android:drawableLeft="@drawable/bacercade"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/bcircuitos"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

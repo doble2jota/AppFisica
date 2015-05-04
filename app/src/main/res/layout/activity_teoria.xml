@@ -125,8 +125,8 @@
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/formulas"
-                                    android:src="@drawable/formulas" />
+                                    android:id="@+id/formulario"
+                                    android:src="@drawable/formulario" />
                             </LinearLayout>
                         </ScrollView>
                     </LinearLayout>
