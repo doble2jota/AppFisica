@@ -130,8 +130,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:layout_above="@+id/linearLayewoutw"
-        android:layout_toRightOf="@+id/contenedorit"
-        android:layout_toEndOf="@+id/contenedorit">
+        android:layout_toRightOf="@+id/linearLayout"
+        android:layout_toEndOf="@+id/linearLayout">
 
         <TextView
             android:layout_width="wrap_content"

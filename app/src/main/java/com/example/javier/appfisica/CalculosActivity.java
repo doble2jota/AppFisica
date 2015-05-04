@@ -195,6 +195,7 @@ public class CalculosActivity extends ActionBarActivity {
             }}catch (NullPointerException e){
             // try para el circuito paralelo
             try {if((this.getIntent().getStringExtra("paralelo").equals("PARALELO"))) {
+
                 setContentView(R.layout.activity_calculos_sp2);
 
                 DecimalFormat df= new DecimalFormat("0.000");
@@ -202,6 +203,22 @@ public class CalculosActivity extends ActionBarActivity {
                 TextView intR=(TextView)findViewById(R.id.intensidadR);
                 TextView intC=(TextView)findViewById(R.id.intensidadC);
                 TextView intL=(TextView)findViewById(R.id.intensidadL);
+                TextView anguC=(TextView)findViewById(R.id.anguloC);
+                TextView anguL=(TextView)findViewById(R.id.anguloL);
+                TextView anguR=(TextView)findViewById(R.id.anguloR);
+                TextView anguiT=(TextView)findViewById(R.id.anguiT);
+                TextView iC=(TextView)findViewById(R.id.iC);
+                TextView iL=(TextView)findViewById(R.id.iL);
+                TextView iR=(TextView)findViewById(R.id.iR);
+                TextView impP=(TextView)findViewById(R.id.impedanciaP);
+                TextView anguloimpe=(TextView)findViewById(R.id.anguloImpe);
+                TextView impedanciaCosSen=(TextView)findViewById(R.id.impedanciaCosSen);
+                TextView tensionR=(TextView)findViewById(R.id.tensionR);
+                TextView tensionL=(TextView)findViewById(R.id.tensionL);
+                TextView tensionC=(TextView)findViewById(R.id.tensionC);
+
+
+
                 TextView intT=(TextView)findViewById(R.id.intensidadTotal);
                 TextView comportamiento=(TextView)findViewById(R.id.comportamiento);
                 TextView intensidadMod=(TextView)findViewById(R.id.intensidadMod);
@@ -246,23 +263,31 @@ public class CalculosActivity extends ActionBarActivity {
 
                 iRp=(vP/rP);
                 angR= 0;
-                intR.setText(" " + df.format(iRp) + " "+ df.format(angR)+"º");
+
+
+                intR.setText(" " + df.format(iRp) );
+                anguR.setText( df.format(angR)+"º");
+                iR.setText(" "+df.format( iRp*Math.cos(Math.toRadians(angR))) +" + j "+df.format(iRp*Math.sin(Math.toRadians(angR))) );
+
 
 
                 iLp=(vP/xLp);
                 angL= -90;
-                intL.setText(" " + df.format(iLp) + " "+ df.format(angL)+"º");
+                intL.setText(" " + df.format(iLp) );
+                anguL.setText( df.format(angL)+"º");
+                iL.setText(" "+df.format( iLp*Math.cos(Math.toRadians(angL))) +" + j "+df.format(iLp*Math.sin(Math.toRadians(angL))) );
 
 
                 iCp=(vP/xCp);
                 angC= 90;
-                intC.setText(" " + df.format(iCp) + " "+ df.format(angC)+"º");
-
+                intC.setText(" " + df.format(iCp) );
+                anguC.setText( df.format(angC)+"º");
+                iC.setText(" "+df.format( iCp*Math.cos(Math.toRadians(angC))) +" + j "+df.format(iCp*Math.sin(Math.toRadians(angC))) );
                 //intensidad totales
 
                 intensidadTotalx=iRp;
                 intensidadTotaly=-iLp+iCp;
-                intT.setText(" " + df.format(intensidadTotalx) + " "+ df.format(intensidadTotaly)+" j");
+                intensidadMod.setText(" " + df.format(intensidadTotalx) + "+  j " + df.format(intensidadTotaly));
 
                 if(iLp>iCp){comportamiento.setText("Inductivo");}else{comportamiento.setText("Capacitivo");}
 
@@ -272,15 +297,22 @@ public class CalculosActivity extends ActionBarActivity {
 
                 anguloFi= (float) Math.toDegrees(anguloFi);
 
-                intensidadMod.setText(" " + df.format(intensidadModulo) + " "+ df.format(anguloFi)+ "º" );
-
+                intT.setText(" " + df.format(intensidadModulo));
+                anguiT.setText(" "+ df.format(anguloFi)+ "º" );
                 TextView potdisipadaP;
                 potdisipadaP=(TextView)findViewById(R.id.potenciadisipadaP);
                 potdisipadaP.setText(df.format(pot)+ " W");
 
                 pot= (float) (rC*Math.pow((intensidadTotalx/Math.sqrt(2)),2));
 
+                float impedanciap= (float) (vP/intensidadModulo);
+                impP.setText(" "+impedanciap  );
+                anguloimpe.setText(" "+ df.format(-anguloFi));
 
+                impedanciaCosSen.setText(" "+df.format( impedanciap*Math.cos(Math.toRadians(-anguloFi))) +" + j "+df.format(impedanciap*Math.sin(Math.toRadians(-anguloFi))) );
+                tensionR.setText(" "+ df.format(iRp*impedanciap));
+                tensionC.setText(" "+ df.format(iCp*impedanciap));
+                tensionL.setText(" "+ df.format(iLp*impedanciap));
 
             }}catch (NullPointerException e1){
 
